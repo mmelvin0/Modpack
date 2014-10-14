@@ -47,7 +47,7 @@ move.options.version:3.2
 move.speed.factor:1
 
 # To switch on/off in-game speed manipulation
-move.speed.user:false;c:true
+move.speed.user:false
 
 # The factor for in-game speed manipulation (>= 0.0001)
 move.speed.user.factor:0.2
