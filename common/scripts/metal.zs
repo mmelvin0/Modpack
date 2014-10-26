@@ -1,7 +1,8 @@
 import minetweaker.data.IData;
-import minetweaker.item.IItemStack;
 import minetweaker.item.IIngredient;
+import minetweaker.item.IItemStack;
 import minetweaker.liquid.ILiquidStack;
+import minetweaker.oredict.IOreDictEntry;
 
 function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, oreCluster as IIngredient,
                     oreDust as IIngredient, oreCrushed as IIngredient, oreCrushedPurified as IIngredient, liquid as ILiquidStack,
@@ -92,47 +93,94 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     for item in oreCluster.items {
         mods.tconstruct.Smeltery.addMelting(item, liquid * 288, 200, realBlock);
     }
+
+}
+
+function fixThermalExpansionDusts(crushed as IIngredient, purified as IIngredient, cluster as IIngredient, ingot as IItemStack) {
+    for item in crushed.items {
+        mods.thermalexpansion.Furnace.removeRecipe(item);
+        mods.thermalexpansion.Furnace.addRecipe(1600, item, ingot);
+    }
+    for item in purified.items {
+        mods.thermalexpansion.Furnace.removeRecipe(item);
+        mods.thermalexpansion.Furnace.addRecipe(1600, item, ingot);
+    }
+    for item in cluster.items {
+        mods.thermalexpansion.Furnace.removeRecipe(item);
+        mods.thermalexpansion.Furnace.addRecipe(1600, item, ingot * 2);
+    }
+}
+
+function purgeOreBerries(berries as IIngredient, nuggets as IOreDictEntry) {
+    furnace.remove(nuggets, berries);
+    for item in berries.items {
+        nuggets.remove(item);
+        mods.mariculture.Crucible.removeRecipe(item);
+        mods.tconstruct.Smeltery.removeMelting(item);
+        mods.thermalexpansion.Furnace.removeRecipe(item);
+    }
 }
 
 unifyMetal(<ore:oreCopper>, <ore:nuggetCopper>, <ore:ingotCopper>, <ore:blockCopper>, <ore:clusterCopper>,
            <ore:dustCopper>, <ore:crushedCopper>, <ore:crushedPurifiedCopper>, <liquid:copper.molten>,
            <Thaumcraft:ItemNugget:1>, <ThermalFoundation:material:64>, <TConstruct:MetalBlock:3>,
            [<IC2:itemIngot:0>], [<IC2:blockMetal:0>]);
+fixThermalExpansionDusts(<ore:crushedCopper>, <ore:crushedPurifiedCopper>, <ore:clusterCopper>, <ThermalFoundation:material:64>);
+purgeOreBerries(<ore:oreberryCopper>, <ore:nuggetCopper>);
 
 unifyMetal(<ore:oreTin>, <ore:nuggetTin>, <ore:ingotTin>, <ore:blockTin>, <ore:clusterTin>,
            <ore:dustTin>, <ore:crushedTin>, <ore:crushedPurifiedTin>, <liquid:tin.molten>,
            <Thaumcraft:ItemNugget:2>, <ThermalFoundation:material:65>, <TConstruct:MetalBlock:5>,
            [<IC2:itemIngot:1>], [<IC2:blockMetal:1>]);
+fixThermalExpansionDusts(<ore:crushedTin>, <ore:crushedPurifiedTin>, <ore:clusterTin>, <ThermalFoundation:material:65>);
+purgeOreBerries(<ore:oreberryTin>, <ore:nuggetTin>);
 
 unifyMetal(<ore:oreIron>, <ore:nuggetIron>, <ore:ingotIron>, <ore:blockIron>, <ore:clusterIron>,
            <ore:dustIron>, <ore:crushedIron>, <ore:crushedPurifiedIron>, <liquid:iron.molten>,
            <Thaumcraft:ItemNugget:0>, <minecraft:iron_ingot:0>, <minecraft:iron_block:0>,
            [], []);
+purgeOreBerries(<ore:oreberryIron>, <ore:nuggetIron>);
 
 unifyMetal(<ore:oreSilver>, <ore:nuggetSilver>, <ore:ingotSilver>, <ore:blockSilver>, <ore:clusterSilver>,
            <ore:dustSilver>, <ore:crushedSilver>, <ore:crushedPurifiedSilver>, <liquid:silver.molten>,
            <Thaumcraft:ItemNugget:3>, <ThermalFoundation:material:66>, <ThermalFoundation:Storage:2>,
            [<IC2:itemIngot:6>], []);
+fixThermalExpansionDusts(<ore:crushedSilver>, <ore:crushedPurifiedSilver>, <ore:clusterSilver>, <ThermalFoundation:material:66>);
 
 unifyMetal(<ore:oreGold>, <ore:nuggetGold>, <ore:ingotGold>, <ore:blockGold>, <ore:clusterGold>,
            <ore:dustGold>, <ore:crushedGold>, <ore:crushedPurifiedGold>, <liquid:gold.molten>,
            <minecraft:gold_nugget:0>, <minecraft:gold_ingot:0>, <minecraft:gold_block:0>,
            [], []);
+// hack: apparently gold oreberries aren't actually oreberries?
+<ore:oreberryGold>.add(<TConstruct:oreBerries:1>);
+purgeOreBerries(<ore:oreberryGold>, <ore:nuggetGold>);
 
 unifyMetal(<ore:oreLead>, <ore:nuggetLead>, <ore:ingotLead>, <ore:blockLead>, <ore:clusterLead>,
            <ore:dustLead>, <ore:crushedLead>, <ore:crushedPurifiedLead>, <liquid:lead.molten>,
            <Thaumcraft:ItemNugget:4>, <ThermalFoundation:material:67>, <Railcraft:tile.railcraft.cube:11>,
            [<IC2:itemIngot:5>], [<IC2:blockMetal:4>]);
+fixThermalExpansionDusts(<ore:crushedLead>, <ore:crushedPurifiedLead>, <ore:clusterLead>, <ThermalFoundation:material:67>);
 
 unifyMetal(<ore:oreNickel>, <ore:nuggetNickel>, <ore:ingotNickel>, <ore:blockNickel>, <ore:clusterNickel>,
            <ore:dustNickel>, <ore:crushedNickel>, <ore:crushedPurifiedNickel>, <liquid:nickel.molten>,
            <ThermalFoundation:material:100>, <ThermalFoundation:material:68>, <ThermalFoundation:Storage:4>,
            [], []);
 
+// make sure things called "aluminum" also count as "aluminium"
+<ore:oreAluminium>.addAll(<ore:oreAluminum>);
+<ore:nuggetAluminium>.addAll(<ore:nuggetAluminum>);
+<ore:ingotAluminium>.addAll(<ore:ingotAluminum>);
+<ore:blockAluminium>.addAll(<ore:blockAluminum>);
 unifyMetal(<ore:oreAluminium>, <ore:nuggetAluminium>, <ore:ingotAluminium>, <ore:blockAluminium>, <ore:clusterAluminium>,
            <ore:dustAluminium>, <ore:crushedAluminium>, <ore:crushedPurifiedAluminium>, <liquid:aluminum.molten>,
            <TConstruct:materials:22>, <TConstruct:materials:11>, <TConstruct:MetalBlock:6>,
            [], []);
+for item in <ore:oreAluminium>.items {
+    mods.thermalexpansion.Furnace.removeRecipe(item);
+    mods.thermalexpansion.Furnace.addRecipe(1600, item, <TConstruct:materials:11>);
+}
+purgeOreBerries(<ore:oreberryAluminium>, <ore:nuggetAluminium>);
+recipes.remove(<GalacticraftCore:tile.gcBlockCore:11>);
 
 unifyMetal(<ore:oreRutile>, <ore:nuggetRutile>, <ore:ingotRutile>, <ore:blockRutile>, <ore:clusterRutile>,
            <ore:dustRutile>, <ore:crushedRutile>, <ore:crushedPurifiedRutile>, <liquid:rutile.molten>,
@@ -153,3 +201,13 @@ unifyMetal(<ore:oreArdite>, <ore:nuggetArdite>, <ore:ingotArdite>, <ore:blockArd
            <ore:dustArdite>, <ore:crushedArdite>, <ore:crushedPurifiedArdite>, <liquid:ardite.molten>,
            <TConstruct:materials:29>, <TConstruct:materials:4>, <TConstruct:MetalBlock:1>,
            [], []);
+
+// 82 - Galactricraft Titanium?
+
+// 111 Yellorite -> Uranium?
+
+// 3
+//for item in <ore:dustAluminium>.items {
+//    mods.thermalexpansion.Smelter.removeRecipe(item * 2, <ThermalExpansion:material:512>);
+//    mods.thermalexpansion.Smelter.addRecipe(8000, item * 2, <ThermalExpansion:material:512>, <TConstruct:materials:11> * 2);
+//}
