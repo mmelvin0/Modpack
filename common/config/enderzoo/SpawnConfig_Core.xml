@@ -44,19 +44,32 @@ same id and 0 biomeTypes.
  -->
 <SpawnConfig>
 
-  <entry id="ConcussionCreeper" mobName="enderzoo.ConcussionCreeper" creatureType="monster" rate="80" minGroupSize="1" maxGroupSize="3"
+  <entry id="ConcussionCreeper" mobName="enderzoo.ConcussionCreeper" creatureType="monster" rate="40" minGroupSize="1" maxGroupSize="3"
     remove="false">   
     <biomeType name="BASE_LAND_TYPES" />
   </entry>
   
-  <entry id="EnderMiny" mobName="enderzoo.Enderminy" rate="60">   
+  <entry id="ConcussionCreeperExcludes" mobName="enderzoo.ConcussionCreeper" rate="80" remove="true">   
+    <biomeType name="NETHER" />
+    <biomeType name="MUSHROOM" />
+  </entry>
+  
+  <entry id="EnderMiny" mobName="enderzoo.Enderminy" rate="30">   
     <biomeType name="FOREST" />
     <biomeType name="SWAMP" />
     <biomeType name="JUNGLE" />
   </entry>
   
-  <entry id="FallenKnight" mobName="enderzoo.FallenKnight" rate="50" minGroupSize="1" maxGroupSize="4">   
+  <entry id="EnderMinyExcludes" mobName="enderzoo.Enderminy" rate="80" remove="true">   
+    <biomeType name="NETHER" />
+  </entry>
+  
+  <entry id="FallenKnight" mobName="enderzoo.FallenKnight" rate="30" minGroupSize="1" maxGroupSize="4">   
     <biomeType name="PLAINS" />
+  </entry>
+  
+  <entry id="FallenKnightExcludes" mobName="enderzoo.FallenKnight" rate="80" remove="true">   
+    <biomeType name="NETHER" />
   </entry>
   
   <entry id="WitherWitch" mobName="enderzoo.WitherWitch" rate="10" minGroupSize="1" maxGroupSize="1">   
@@ -65,6 +78,10 @@ same id and 0 biomeTypes.
     <biomeType name="PLAINS" />
     <biomeType name="HILLS" />
     <biomeType name="MOUNTAIN" />    
+  </entry>
+  
+  <entry id="WitherWitchExcludes" mobName="enderzoo.WitherWitch" rate="80" remove="true">   
+    <biomeType name="NETHER" />
   </entry>
 
 </SpawnConfig>
