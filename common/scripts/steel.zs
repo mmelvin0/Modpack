@@ -73,3 +73,11 @@ for item in <ore:dustSteel>.items {
     mods.thermalexpansion.Furnace.removeRecipe(item);
     mods.thermalexpansion.Furnace.addRecipe(1000, item, realIngot);
 }
+
+// tinker's steelworks high oven controller
+recipes.remove(<TSteelworks:HighOven:0>);
+recipes.addShaped(<TSteelworks:HighOven:0>, [
+    [<TSteelworks:Materials:0>, <TSteelworks:Materials:0>, <TSteelworks:Materials:0>],
+    [<TSteelworks:Materials:0>, <minecraft:blaze_rod:0>, <TSteelworks:Materials:0>],
+    [<TSteelworks:Materials:0>, <TSteelworks:Materials:0>, <TSteelworks:Materials:0>],
+]);
