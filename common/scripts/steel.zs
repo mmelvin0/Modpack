@@ -51,6 +51,9 @@ recipes.addShapeless(realBlock, [
 furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
 furnace.addRecipe(realIngot, <ore:dustSteel>);
 
+// industrialcraft
+<ore:ingotSteel>.remove(<IC2:itemIngot:3>);
+
 // mariculture
 mods.mariculture.Casting.addNuggetRecipe(liquid * 16, realNugget);
 mods.mariculture.Casting.addIngotRecipe(liquid * 144, realIngot);
