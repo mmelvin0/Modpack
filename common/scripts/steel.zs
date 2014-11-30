@@ -62,6 +62,10 @@ for item in <ore:dustSteel>.items {
     mods.mekanism.Infuser.removeRecipe(item);
 }
 
+// railcraft
+mods.railcraft.BlastFurnace.removeRecipe(<Railcraft:tile.railcraft.cube:2>);
+mods.railcraft.BlastFurnace.addRecipe(<minecraft:iron_block:0>, false, false, 11520, realBlock);
+
 // tinker's construct
 mods.tconstruct.Casting.removeTableRecipe(<IC2:itemIngot:3>);
 mods.tconstruct.Casting.removeBasinRecipe(<IC2:blockMetal:5>);
