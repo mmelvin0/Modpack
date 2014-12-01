@@ -3,7 +3,7 @@
   "doorX": 0,
   "doorZ": 0,
   "doorY": 0,
-  "buildingTier": 0,
+  "buildingTier": 1,
   "buildingType": 0,
   "blockList": [
     {
@@ -1039,9 +1039,9 @@
       "blockid": "minecraft:ladder",
       "metadata": [
         2,
-        2,
-        2,
-        2
+        3,
+        4,
+        5
       ],
       "positions": [
         {
