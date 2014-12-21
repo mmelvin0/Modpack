@@ -56,6 +56,8 @@ addSaplingLoot(<BiomesOPlenty:saplings:3>);
 //addSaplingLoot(<BiomesOPlenty:saplings:4>);
 // no dying saplings
 //addSaplingLoot(<BiomesOPlenty:saplings:5>);
+// no mahgonay sapling (find in tropical rainforest)
+//addSaplingLoot(<BiomesOPlenty:saplings:6>);
 addSaplingLoot(<BiomesOPlenty:saplings:7>);
 addSaplingLoot(<BiomesOPlenty:saplings:8>);
 addSaplingLoot(<BiomesOPlenty:saplings:9>);
