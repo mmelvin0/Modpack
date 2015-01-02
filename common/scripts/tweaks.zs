@@ -7,9 +7,12 @@ import mods.nei.NEI;
 
 
   ///////////////
- // MATERIALS //
+ // CONSTANTS //
 ///////////////
 
+val MB_PER_NUGGET = 16;
+val MB_PER_INGOT = 144;
+val MB_PER_BLOCK = 1296;
 val COPPER_NUGGET = <Thaumcraft:ItemNugget:1>;
 val COPPER_INGOT = <ThermalFoundation:material:64>;
 val COPPER_BLOCK = <TConstruct:MetalBlock:3>;
@@ -111,17 +114,17 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     furnace.addRecipe(realIngot * 2, oreCluster, xp);
 
     // mariculture
-    mods.mariculture.Casting.addNuggetRecipe(liquid * 16, realNugget);
-    mods.mariculture.Casting.addIngotRecipe(liquid * 144, realIngot);
-    mods.mariculture.Casting.addBlockRecipe(liquid * 1296, realBlock);
+    mods.mariculture.Casting.addNuggetRecipe(liquid * MB_PER_NUGGET, realNugget);
+    mods.mariculture.Casting.addIngotRecipe(liquid * MB_PER_INGOT, realIngot);
+    mods.mariculture.Casting.addBlockRecipe(liquid * MB_PER_BLOCK, realBlock);
     for item in oreCrushed.items {
-        mods.mariculture.Crucible.addRecipe(1085, item, liquid * 144);
+        mods.mariculture.Crucible.addRecipe(1085, item, liquid * MB_PER_INGOT);
     }
     for item in oreCrushedPurified.items {
-        mods.mariculture.Crucible.addRecipe(1085, item, liquid * 144);
+        mods.mariculture.Crucible.addRecipe(1085, item, liquid * MB_PER_INGOT);
     }
     for item in oreCluster.items {
-        mods.mariculture.Crucible.addRecipe(1085, item, liquid * 288);
+        mods.mariculture.Crucible.addRecipe(1085, item, liquid * MB_PER_INGOT * 2);
     }
 
     // tinker's construct
@@ -131,16 +134,16 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     for item in banBlocks {
         mods.tconstruct.Casting.removeBasinRecipe(item);
     }
-    mods.tconstruct.Casting.addTableRecipe(realIngot * 1, liquid * 144, <TConstruct:metalPattern>, false, 20);
-    mods.tconstruct.Casting.addBasinRecipe(realBlock * 1, liquid * 1296, null, false, 20);
+    mods.tconstruct.Casting.addTableRecipe(realIngot * 1, liquid * MB_PER_INGOT, <TConstruct:metalPattern>, false, 80);
+    mods.tconstruct.Casting.addBasinRecipe(realBlock * 1, liquid * MB_PER_BLOCK, null, false, 100);
     for item in oreCrushed.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 144, 200, realBlock);
+        mods.tconstruct.Smeltery.addMelting(item, liquid * MB_PER_INGOT, 200, realBlock);
     }
     for item in oreCrushedPurified.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 144, 200, realBlock);
+        mods.tconstruct.Smeltery.addMelting(item, liquid * MB_PER_INGOT, 200, realBlock);
     }
     for item in oreCluster.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 288, 200, realBlock);
+        mods.tconstruct.Smeltery.addMelting(item, liquid * MB_PER_INGOT * 2, 200, realBlock);
     }
 }
 
@@ -308,15 +311,15 @@ furnace.remove(<ore:ingotBronze>, <ore:dustBronze>);
 furnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>, 0.7);
 
 // mariculture
-mods.mariculture.Casting.addNuggetRecipe(BRONZE_MOLTEN * 16, BRONZE_NUGGET);
-mods.mariculture.Casting.addIngotRecipe(BRONZE_MOLTEN * 144, BRONZE_INGOT);
-mods.mariculture.Casting.addBlockRecipe(BRONZE_MOLTEN * 1296, BRONZE_BLOCK);
+mods.mariculture.Casting.addNuggetRecipe(BRONZE_MOLTEN * MB_PER_NUGGET, BRONZE_NUGGET);
+mods.mariculture.Casting.addIngotRecipe(BRONZE_MOLTEN * MB_PER_INGOT, BRONZE_INGOT);
+mods.mariculture.Casting.addBlockRecipe(BRONZE_MOLTEN * MB_PER_BLOCK, BRONZE_BLOCK);
 
 // tinker's construct
 mods.tconstruct.Casting.removeTableRecipe(<IC2:itemIngot:2>);
 mods.tconstruct.Casting.removeBasinRecipe(<IC2:blockMetal:2>);
-mods.tconstruct.Casting.addTableRecipe(BRONZE_INGOT * 1, BRONZE_MOLTEN * 144, <TConstruct:metalPattern>, false, 20);
-mods.tconstruct.Casting.addBasinRecipe(BRONZE_BLOCK * 1, BRONZE_MOLTEN * 1296, null, false, 20);
+mods.tconstruct.Casting.addTableRecipe(BRONZE_INGOT * 1, BRONZE_MOLTEN * MB_PER_INGOT, <TConstruct:metalPattern>, false, 80);
+mods.tconstruct.Casting.addBasinRecipe(BRONZE_BLOCK * 1, BRONZE_MOLTEN * MB_PER_BLOCK, null, false, 100);
 
 // thermal expansion
 for item in <ore:dustBronze>.items {
@@ -404,9 +407,9 @@ furnace.addRecipe(STEEL_INGOT, <ore:dustSteel>);
 <ore:ingotSteel>.remove(<IC2:itemIngot:3>);
 
 // mariculture
-mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * 16, STEEL_NUGGET);
-mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
-mods.mariculture.Casting.addBlockRecipe(STEEL_MOLTEN * 1296, STEEL_BLOCK);
+mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * MB_PER_NUGGET, STEEL_NUGGET);
+mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * MB_PER_INGOT, STEEL_INGOT);
+mods.mariculture.Casting.addBlockRecipe(STEEL_MOLTEN * MB_PER_BLOCK, STEEL_BLOCK);
 
 // mekanism
 mods.mekanism.Infuser.removeRecipe(<Mekanism:EnrichedIron:0>);
@@ -421,8 +424,8 @@ mods.railcraft.BlastFurnace.addRecipe(<minecraft:iron_block:0>, false, false, 11
 // tinker's construct
 mods.tconstruct.Casting.removeTableRecipe(<IC2:itemIngot:3>);
 mods.tconstruct.Casting.removeBasinRecipe(<IC2:blockMetal:5>);
-mods.tconstruct.Casting.addTableRecipe(STEEL_INGOT * 1, STEEL_MOLTEN * 144, <TConstruct:metalPattern>, false, 20);
-mods.tconstruct.Casting.addBasinRecipe(STEEL_BLOCK * 1, STEEL_MOLTEN * 1296, null, false, 20);
+mods.tconstruct.Casting.addTableRecipe(STEEL_INGOT * 1, STEEL_MOLTEN * MB_PER_INGOT, <TConstruct:metalPattern>, false, 80);
+mods.tconstruct.Casting.addBasinRecipe(STEEL_BLOCK * 1, STEEL_MOLTEN * MB_PER_BLOCK, null, false, 100);
 
 // thermal expansion
 for item in <ore:dustSteel>.items {
