@@ -160,7 +160,6 @@ function unifyDusts(crushed as IIngredient, purified as IIngredient, cluster as 
 }
 
 function purgeBerries(berries as IIngredient, nuggets as IOreDictEntry) {
-    furnace.remove(nuggets, berries);
     for item in berries.items {
         nuggets.remove(item);
         mods.mariculture.Crucible.removeRecipe(item);
@@ -755,7 +754,6 @@ NEI.hide(<MFFS:forceField:0>);
 NEI.hide(<PneumaticCraft:etchingAcid:0>);
 NEI.hide(<ProjRed|Illumination:projectred.illumination.airousLight:0>);
 NEI.hide(<ResonantEngine:creativeBuilder:0>);
-NEI.hide(<ResonantEngine:infiniteFluid:0>);
 NEI.hide(<ResonantEngine:syntheticPart:0>);
 NEI.hide(<statues:statues.showcase:0>);
 NEI.hide(<statues:statues.statue:0>);
