@@ -2,4 +2,86 @@
 Entries in this file take precedence over the values in the core file
  -->
 <OreDictionaryPreferences>
+
+  <!-- Dusts -->
+
+  <preference oreDictionary="dustCoal">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="2" />
+  </preference>
+
+  <preference oreDictionary="dustCharcoal">
+    <itemStack modID="Railcraft" itemName="dust" itemMeta="3" />
+  </preference>
+
+  <preference oreDictionary="dustObsidian">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="11" />
+  </preference>
+
+  <preference oreDictionary="dustIron">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="5" />
+  </preference>
+
+  <preference oreDictionary="dustGold">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="4" />
+  </preference>
+
+  <preference oreDictionary="dustCopper">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="3" />
+  </preference>
+
+  <preference oreDictionary="dustTin">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="7" />
+  </preference>
+
+  <preference oreDictionary="dustSilver">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="6" />
+  </preference>
+
+  <preference oreDictionary="dustLead">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="10" />
+  </preference>
+
+  <preference oreDictionary="dustNickel">
+    <itemStack modID="ThermalFoundation" itemName="material" itemMeta="36" />
+  </preference>
+
+  <preference oreDictionary="dustSulfur">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="13" />
+  </preference>
+
+  <preference oreDictionary="dustBronze">
+    <itemStack modID="IC2" itemName="itemDust" itemMeta="0" />
+  </preference>
+
+
+  <!-- Ingots -->
+
+  <preference oreDictionary="ingotCopper">
+    <itemStack modID="ThermalFoundation" itemName="material" itemMeta="64" />
+  </preference>
+
+  <preference oreDictionary="ingotTin">
+    <itemStack modID="ThermalFoundation" itemName="material" itemMeta="65" />
+  </preference>
+
+  <preference oreDictionary="ingotSilver">
+    <itemStack modID="ThermalFoundation" itemName="material" itemMeta="66" />
+  </preference>
+
+  <preference oreDictionary="ingotLead">
+    <itemStack modID="ThermalFoundation" itemName="material" itemMeta="67" />
+  </preference>
+
+  <preference oreDictionary="ingotBronze">
+    <itemStack modID="TConstruct" itemName="materials" itemMeta="13" />
+  </preference>
+
+  <preference oreDictionary="ingotAluminum">
+    <itemStack modID="TConstruct" itemName="materials" itemMeta="11" />
+  </preference>
+
+  <preference oreDictionary="ingotAluminuim">
+    <itemStack modID="TConstruct" itemName="materials" itemMeta="11" />
+  </preference>
+
 </OreDictionaryPreferences>
