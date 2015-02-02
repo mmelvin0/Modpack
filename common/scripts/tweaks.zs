@@ -542,6 +542,7 @@ NEI.hide(<chisel:concrete:*>);
  // L18N //
 //////////
 
+game.setLocalization("item.Facade.state_hollow", "Hollow");
 game.setLocalization("material.electrum", "Electrum");
 game.setLocalization("material.invar", "Invar");
 game.setLocalization("material.lead", "Lead");
@@ -549,6 +550,7 @@ game.setLocalization("material.nickel", "Ferrous");
 game.setLocalization("material.platinum", "Shiny");
 game.setLocalization("material.silver", "Silver");
 game.setLocalization("material.titanium", "Titanium");
+game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
 
 
   /////////
