@@ -27,7 +27,7 @@ val GOLD_INGOT = <minecraft:gold_ingot:0>;
 val GOLD_BLOCK = <minecraft:gold_block:0>;
 val LEAD_NUGGET = <Thaumcraft:ItemNugget:4>;
 val LEAD_INGOT = <ThermalFoundation:material:67>;
-val LEAD_BLOCK = <Railcraft:tile.railcraft.cube:11>;
+val LEAD_BLOCK = <Railcraft:cube:11>;
 val NICKEL_NUGGET = <ThermalFoundation:material:100>;
 val NICKEL_INGOT = <ThermalFoundation:material:68>;
 val NICKEL_BLOCK = <ThermalFoundation:Storage:4>;
@@ -414,7 +414,7 @@ for item in <ore:dustSteel>.items {
 }
 
 // railcraft
-mods.railcraft.BlastFurnace.removeRecipe(<Railcraft:tile.railcraft.cube:2>);
+mods.railcraft.BlastFurnace.removeRecipe(<Railcraft:cube:2>);
 mods.railcraft.BlastFurnace.addRecipe(<minecraft:iron_block:0>, false, false, 11520, STEEL_BLOCK);
 
 // tinker's construct
@@ -530,9 +530,9 @@ addSaplingLoot(<BiomesOPlenty:colorizedSaplings:6>);
  // RAILCRAFT //
 ///////////////
 
-fixRailcraftSlabsAndStairs(COPPER_BLOCK, <Railcraft:tile.railcraft.slab:39>, <Railcraft:tile.railcraft.stair:39>);
-fixRailcraftSlabsAndStairs(TIN_BLOCK, <Railcraft:tile.railcraft.slab:40>, <Railcraft:tile.railcraft.stair:40>);
-fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:tile.railcraft.slab:42>, <Railcraft:tile.railcraft.stair:42>);
+fixRailcraftSlabsAndStairs(COPPER_BLOCK, <Railcraft:slab:40>, <Railcraft:stair:40>);
+fixRailcraftSlabsAndStairs(TIN_BLOCK, <Railcraft:slab:41>, <Railcraft:stair:41>);
+fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43>);
 
 
   ////////////
@@ -598,7 +598,7 @@ NEI.hide(<GalacticraftCore:tile.gcBlockCore:5>);
 NEI.hide(<IC2:blockOreCopper:0>);
 NEI.hide(<Mariculture:rocks:1>);
 NEI.hide(<Mekanism:OreBlock:1>);
-NEI.hide(<Railcraft:tile.railcraft.ore:9>);
+NEI.hide(<Railcraft:ore:9>);
 NEI.hide(<TConstruct:SearedBrick:3>);
 
 // extra copper nuggets
@@ -621,14 +621,14 @@ NEI.hide(<GalacticraftCore:tile.gcBlockCore:9>);
 NEI.hide(<IC2:blockMetal:0>);
 NEI.hide(<Mariculture:metals:0>);
 NEI.hide(<Mekanism:BasicBlock:12>);
-NEI.hide(<Railcraft:tile.railcraft.cube:9>);
+NEI.hide(<Railcraft:cube:9>);
 NEI.hide(<ThermalFoundation:Storage:0>);
 
 // extra tin ores
 NEI.hide(<Forestry:resources:2>);
 NEI.hide(<IC2:blockOreTin:0>);
 NEI.hide(<Mekanism:OreBlock:2>);
-NEI.hide(<Railcraft:tile.railcraft.ore:10>);
+NEI.hide(<Railcraft:ore:10>);
 NEI.hide(<TConstruct:SearedBrick:4>);
 
 // extra tin nuggets
@@ -645,7 +645,7 @@ NEI.hide(<TConstruct:materials:10>);
 
 // extra tin blocks
 NEI.hide(<Forestry:resourceStorage:2>);
-NEI.hide(<Railcraft:tile.railcraft.cube:10>);
+NEI.hide(<Railcraft:cube:10>);
 NEI.hide(<GalacticraftCore:tile.gcBlockCore:10>);
 NEI.hide(<IC2:blockMetal:1>);
 NEI.hide(<Mekanism:BasicBlock:13>);
@@ -665,7 +665,7 @@ NEI.hide(<IC2:itemIngot:6>);
 
 // extra lead ores
 NEI.hide(<IC2:blockOreLead:0>);
-NEI.hide(<Railcraft:tile.railcraft.ore:11>);
+NEI.hide(<Railcraft:ore:11>);
 
 // extra lead nuggets
 NEI.hide(<Railcraft:nugget:4>);
