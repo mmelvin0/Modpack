@@ -438,6 +438,19 @@ recipes.addShaped(<TSteelworks:HighOven:0>, [
 ]);
 
 
+  ///////////
+ // GEARS //
+///////////
+
+// extra iron gears
+recipes.remove(<Railcraft:part.gear:1>);
+recipes.remove(<ThermalFoundation:material:12>);
+<ore:gearIron>.remove(<Railcraft:part.gear:1>);
+<ore:gearIron>.remove(<ThermalFoundation:material:12>);
+NEI.hide(<Railcraft:part.gear:1>);
+NEI.hide(<ThermalFoundation:material:12>);
+
+
   //////////
  // LOOT //
 //////////
