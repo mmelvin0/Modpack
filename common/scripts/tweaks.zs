@@ -451,6 +451,31 @@ NEI.hide(<Railcraft:part.gear:1>);
 NEI.hide(<ThermalFoundation:material:12>);
 
 
+  ////////////////////
+ // PNEUMATICCRAFT //
+////////////////////
+
+// black dye instead of ink sacs
+recipes.removeShapeless(<minecraft:dye:0>, [<PneumaticCraft:plasticPlant:0>]);
+recipes.addShapeless(<BiomesOPlenty:misc:9>, [<PneumaticCraft:plasticPlant:0>]);
+
+// green dye instead of cactus green
+recipes.removeShapeless(<minecraft:dye:2>, [<PneumaticCraft:plasticPlant:2>]);
+recipes.addShapeless(<BiomesOPlenty:misc:7>, [<PneumaticCraft:plasticPlant:2>]);
+
+// brown dye instead of cocoa beans
+recipes.removeShapeless(<minecraft:dye:3>, [<PneumaticCraft:plasticPlant:3>]);
+recipes.addShapeless(<BiomesOPlenty:misc:6>, [<PneumaticCraft:plasticPlant:3>]);
+
+// blue dye instead of lapis
+recipes.removeShapeless(<minecraft:dye:4>, [<PneumaticCraft:plasticPlant:4>]);
+recipes.addShapeless(<BiomesOPlenty:misc:5>, [<PneumaticCraft:plasticPlant:4>]);
+
+// white dye instead of bone meal
+recipes.removeShapeless(<minecraft:dye:15>, [<PneumaticCraft:plasticPlant:15>]);
+recipes.addShapeless(<BiomesOPlenty:misc:8>, [<PneumaticCraft:plasticPlant:15>]);
+
+
   //////////
  // LOOT //
 //////////
