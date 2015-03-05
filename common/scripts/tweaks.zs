@@ -560,22 +560,6 @@ fixRailcraftSlabsAndStairs(TIN_BLOCK, <Railcraft:slab:41>, <Railcraft:stair:41>)
 fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43>);
 
 
-  ////////////
- // CHISEL //
-////////////
-
-// disable chisel cloud in a bottle
-recipes.remove(<chisel:cloudinabottle:0>);
-NEI.hide(<chisel:cloudinabottle:0>);
-
-// disable chisel concrete
-furnace.remove(<chisel:concrete:*>);
-for item in <ore:gravel>.items {
-    mods.thermalexpansion.Furnace.removeRecipe(item);
-}
-NEI.hide(<chisel:concrete:*>);
-
-
   //////////
  // L18N //
 //////////
@@ -587,8 +571,9 @@ game.setLocalization("material.lead", "Lead");
 game.setLocalization("material.nickel", "Ferrous");
 game.setLocalization("material.platinum", "Shiny");
 game.setLocalization("material.silver", "Silver");
-game.setLocalization("material.titanium", "Titanium");
 game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
+game.setLocalization("tile.chisel.leaves.name", "Leaves");
+game.setLocalization("tile.chisel.road_line.name", "Road Line");
 
 
   /////////
@@ -723,6 +708,7 @@ NEI.hide(<appliedenergistics2:tile.BlockCableBus:0>);
 NEI.hide(<appliedenergistics2:tile.BlockMatrixFrame:0>);
 NEI.hide(<appliedenergistics2:tile.BlockPaint:0>);
 NEI.hide(<AWWayofTime:blockDemonChest:0>);
+NEI.hide(<AWWayofTime:blockMimic:0>);
 NEI.hide(<AWWayofTime:blockSchemSaver:0>);
 NEI.hide(<AWWayofTime:bloodLight:0>);
 NEI.hide(<AWWayofTime:demonPortalMain:0>);
@@ -730,13 +716,39 @@ NEI.hide(<AWWayofTime:itemBloodMagicBook:0>);
 NEI.hide(<AWWayofTime:spectralBlock:0>);
 NEI.hide(<AWWayofTime:spectralContainer:0>);
 NEI.hide(<Botania:bifrost:0>);
+NEI.hide(<Botania:biomeStoneA10SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA11SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA12SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA13SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA14SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA15SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA0SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA1SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA2SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA3SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA4SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA5SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA6SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA7SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA8SlabFull:0>);
+NEI.hide(<Botania:biomeStoneA9SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB0SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB1SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB2SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB3SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB4SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB5SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB6SlabFull:0>);
+NEI.hide(<Botania:biomeStoneB7SlabFull:0>);
 NEI.hide(<Botania:buriedPetals:*>);
 NEI.hide(<Botania:customBrick0SlabFull:0>);
 NEI.hide(<Botania:customBrick1SlabFull:0>);
 NEI.hide(<Botania:customBrick2SlabFull:0>);
 NEI.hide(<Botania:customBrick3SlabFull:0>);
+NEI.hide(<Botania:dirtPath0SlabFull:0>);
 NEI.hide(<Botania:dreamwood0SlabFull:0>);
 NEI.hide(<Botania:dreamwood1SlabFull:0>);
+NEI.hide(<Botania:endStoneBrick0SlabFull:0>);
 NEI.hide(<Botania:livingrock0SlabFull:0>);
 NEI.hide(<Botania:livingrock1SlabFull:0>);
 NEI.hide(<Botania:livingwood0SlabFull:0>);
@@ -762,10 +774,57 @@ NEI.hide(<CarpentersBlocks:blockCarpentersSlope:1>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:2>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:3>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:4>);
-NEI.hide(<EnderIO:blockCapacitorBank:0>.withTag({storedEnergyRF: 0}));
-NEI.hide(<EnderIO:blockCapacitorBank:0>.withTag({storedEnergyRF: 5000000}));
-NEI.hide(<EnderIO:blockCapacitorBank:1>.withTag({storedEnergyRF: 2500000}));
-NEI.hide(<EnderIO:blockCapacitorBank:1>);
+NEI.hide(<chisel:amber:0>);
+NEI.hide(<chisel:bloodBrick:0>);
+NEI.hide(<chisel:stonebricksmooth2:0>);
+NEI.hide(<chisel:stonebricksmooth2:1>);
+NEI.hide(<chisel:stonebricksmooth2:2>);
+NEI.hide(<chisel:stonebricksmooth2:3>);
+NEI.hide(<chisel:limestone_slab_top:10>);
+NEI.hide(<chisel:limestone_slab_top:11>);
+NEI.hide(<chisel:limestone_slab_top:12>);
+NEI.hide(<chisel:limestone_slab_top:13>);
+NEI.hide(<chisel:limestone_slab_top:14>);
+NEI.hide(<chisel:limestone_slab_top:15>);
+NEI.hide(<chisel:limestone_slab_top:1>);
+NEI.hide(<chisel:limestone_slab_top:2>);
+NEI.hide(<chisel:limestone_slab_top:3>);
+NEI.hide(<chisel:limestone_slab_top:4>);
+NEI.hide(<chisel:limestone_slab_top:5>);
+NEI.hide(<chisel:limestone_slab_top:6>);
+NEI.hide(<chisel:limestone_slab_top:7>);
+NEI.hide(<chisel:limestone_slab_top:8>);
+NEI.hide(<chisel:limestone_slab_top:9>);
+NEI.hide(<chisel:marble_pillar_slab_top:10>);
+NEI.hide(<chisel:marble_pillar_slab_top:11>);
+NEI.hide(<chisel:marble_pillar_slab_top:12>);
+NEI.hide(<chisel:marble_pillar_slab_top:13>);
+NEI.hide(<chisel:marble_pillar_slab_top:14>);
+NEI.hide(<chisel:marble_pillar_slab_top:15>);
+NEI.hide(<chisel:marble_pillar_slab_top:1>);
+NEI.hide(<chisel:marble_pillar_slab_top:2>);
+NEI.hide(<chisel:marble_pillar_slab_top:3>);
+NEI.hide(<chisel:marble_pillar_slab_top:4>);
+NEI.hide(<chisel:marble_pillar_slab_top:5>);
+NEI.hide(<chisel:marble_pillar_slab_top:6>);
+NEI.hide(<chisel:marble_pillar_slab_top:7>);
+NEI.hide(<chisel:marble_pillar_slab_top:8>);
+NEI.hide(<chisel:marble_pillar_slab_top:9>);
+NEI.hide(<chisel:marble_slab_top:10>);
+NEI.hide(<chisel:marble_slab_top:11>);
+NEI.hide(<chisel:marble_slab_top:12>);
+NEI.hide(<chisel:marble_slab_top:13>);
+NEI.hide(<chisel:marble_slab_top:14>);
+NEI.hide(<chisel:marble_slab_top:15>);
+NEI.hide(<chisel:marble_slab_top:1>);
+NEI.hide(<chisel:marble_slab_top:2>);
+NEI.hide(<chisel:marble_slab_top:3>);
+NEI.hide(<chisel:marble_slab_top:4>);
+NEI.hide(<chisel:marble_slab_top:5>);
+NEI.hide(<chisel:marble_slab_top:6>);
+NEI.hide(<chisel:marble_slab_top:7>);
+NEI.hide(<chisel:marble_slab_top:8>);
+NEI.hide(<chisel:marble_slab_top:9>);
 NEI.hide(<EnderIO:blockLightNode:0>);
 NEI.hide(<EnderZoo:enderZooIcon:0>);
 NEI.hide(<extracells:ecbaseblock:1>);
@@ -793,7 +852,6 @@ NEI.hide(<HardcoreEnderExpansion:enhanced_brewing_stand_block:0>);
 NEI.hide(<HardcoreEnderExpansion:item_special_effects:0>);
 NEI.hide(<HardcoreEnderExpansion:laser_beam:0>);
 NEI.hide(<HardcoreEnderExpansion:temple_end_portal:0>);
-NEI.hide(<HardcoreEnderExpansion:temple_end_portal:0>);
 NEI.hide(<IC2:blockBarrel:0>);
 NEI.hide(<IC2:blockCable:0>);
 NEI.hide(<IC2:blockDoorAlloy:0>);
@@ -804,6 +862,7 @@ NEI.hide(<IC2:blockLuminator:0>);
 NEI.hide(<IC2:blockWall:*>);
 NEI.hide(<Mantle:mantleBook:0>);
 NEI.hide(<MFFS:forceField:0>);
+NEI.hide(<PneumaticCraft:droneRedstoneEmitter:0>);
 NEI.hide(<PneumaticCraft:etchingAcid:0>);
 NEI.hide(<ProjRed|Illumination:projectred.illumination.airousLight:0>);
 NEI.hide(<ResonantEngine:creativeBuilder:0>);
