@@ -709,6 +709,7 @@ NEI.hide(<AWWayofTime:demonPortalMain:0>);
 NEI.hide(<AWWayofTime:itemBloodMagicBook:0>);
 NEI.hide(<AWWayofTime:spectralBlock:0>);
 NEI.hide(<AWWayofTime:spectralContainer:0>);
+NEI.hide(<BiblioCraft:BiblioClipboard>);
 NEI.hide(<Botania:bifrost:0>);
 NEI.hide(<Botania:biomeStoneA0SlabFull:0>);
 NEI.hide(<Botania:biomeStoneA10SlabFull:0>);
