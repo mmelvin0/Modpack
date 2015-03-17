@@ -868,7 +868,6 @@ NEI.hide(<StevesCarts:ModularCart:0>);
 NEI.hide(<TConstruct:BattleSignBlock:0>);
 NEI.hide(<TConstruct:HeldItemBlock:0>);
 NEI.hide(<TConstruct:potionLauncher>.withTag({InfiTool: {Loaded: 0 as byte}}));
-NEI.hide(<TConstruct:TankAir:0>);
 NEI.hide(<Thaumcraft:blockAlchemyFurnace:0>);
 NEI.hide(<Thaumcraft:blockArcaneFurnace:0>);
 NEI.hide(<Thaumcraft:blockCosmeticDoubleSlabStone:0>);
