@@ -469,6 +469,8 @@ recipes.addShapeless(<BiomesOPlenty:misc:6>, [<PneumaticCraft:plasticPlant:3>]);
 
 // blue dye instead of lapis
 recipes.removeShapeless(<minecraft:dye:4>, [<PneumaticCraft:plasticPlant:4>]);
+// for some reason the lapis block -> 9 dye recipe gets clobbered by the above
+recipes.addShapeless(<minecraft:dye:4> * 9, [<minecraft:lapis_block>]);
 recipes.addShapeless(<BiomesOPlenty:misc:5>, [<PneumaticCraft:plasticPlant:4>]);
 
 // white dye instead of bone meal
