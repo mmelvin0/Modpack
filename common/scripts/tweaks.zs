@@ -478,6 +478,29 @@ recipes.removeShapeless(<minecraft:dye:15>, [<PneumaticCraft:plasticPlant:15>]);
 recipes.addShapeless(<BiomesOPlenty:misc:8>, [<PneumaticCraft:plasticPlant:15>]);
 
 
+  //////////////////
+ // GALACTICRAFT //
+//////////////////
+
+// tin canister requires one compressed tin at bottom
+// not neccessary, but for consistency
+recipes.remove(<GalacticraftCore:item.canister:0>);
+recipes.addShaped(<GalacticraftCore:item.canister:0> * 2, [
+    [<ore:ingotTin>, null, <ore:ingotTin>],
+    [<ore:ingotTin>, null, <ore:ingotTin>],
+    [<ore:ingotTin>, <ore:compressedTin>, <ore:ingotTin>]
+]);
+
+// copper canister requires one compressed copper at bottom
+// fixes conflict with mariculture vat
+recipes.remove(<GalacticraftCore:item.canister:1>);
+recipes.addShaped(<GalacticraftCore:item.canister:1> * 2, [
+    [<ore:ingotCopper>, null, <ore:ingotCopper>],
+    [<ore:ingotCopper>, null, <ore:ingotCopper>],
+    [<ore:ingotCopper>, <ore:compressedCopper>, <ore:ingotCopper>]
+]);
+
+
   //////////
  // LOOT //
 //////////
