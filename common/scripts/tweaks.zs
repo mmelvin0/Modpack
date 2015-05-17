@@ -589,10 +589,14 @@ fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43
  // L18N //
 //////////
 
+game.setLocalization("fluid.redmetal.molten", "Molten Red Metal");
+game.setLocalization("fluid.redstone.molten", "Molten Redstone");
 game.setLocalization("item.Facade.state_hollow", "Hollow");
 game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
 game.setLocalization("tile.chisel.leaves.name", "Leaves");
 game.setLocalization("tile.chisel.road_line.name", "Road Line");
+game.setLocalization("tile.railcraft.post.metal.unpainted.name", "Metal Post");
+game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
 
 
   /////////
@@ -769,6 +773,7 @@ NEI.hide(<Botania:dirtPath0SlabFull:0>);
 NEI.hide(<Botania:dreamwood0SlabFull:0>);
 NEI.hide(<Botania:dreamwood1SlabFull:0>);
 NEI.hide(<Botania:endStoneBrick0SlabFull:0>);
+NEI.hide(<Botania:fakeAir:0>);
 NEI.hide(<Botania:livingrock0SlabFull:0>);
 NEI.hide(<Botania:livingrock1SlabFull:0>);
 NEI.hide(<Botania:livingwood0SlabFull:0>);
@@ -782,8 +787,17 @@ NEI.hide(<Botania:quartzSlabElfFull:0>);
 NEI.hide(<Botania:quartzSlabLavenderFull:0>);
 NEI.hide(<Botania:quartzSlabManaFull:0>);
 NEI.hide(<Botania:quartzSlabRedFull:0>);
+NEI.hide(<Botania:quartzSlabSunnyFull:0>);
 NEI.hide(<Botania:reedBlock0SlabFull:0>);
 NEI.hide(<Botania:solidVine:0>);
+NEI.hide(<Botania:stone0SlabFull:0>);
+NEI.hide(<Botania:stone10SlabFull:0>);
+NEI.hide(<Botania:stone11SlabFull:0>);
+NEI.hide(<Botania:stone1SlabFull:0>);
+NEI.hide(<Botania:stone2SlabFull:0>);
+NEI.hide(<Botania:stone3SlabFull:0>);
+NEI.hide(<Botania:stone8SlabFull:0>);
+NEI.hide(<Botania:stone9SlabFull:0>);
 NEI.hide(<Botania:thatch0SlabFull:0>);
 NEI.hide(<BuildCraft|Builders:buildToolBlock:0>);
 NEI.hide(<BuildCraft|Energy:blockRedPlasma:0>);
