@@ -589,12 +589,7 @@ fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43
  // L18N //
 //////////
 
-game.setLocalization("fluid.redmetal.molten", "Molten Red Metal");
-game.setLocalization("fluid.redstone.molten", "Molten Redstone");
-game.setLocalization("item.Facade.state_hollow", "Hollow");
 game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
-game.setLocalization("tile.chisel.leaves.name", "Leaves");
-game.setLocalization("tile.chisel.road_line.name", "Road Line");
 game.setLocalization("tile.railcraft.post.metal.unpainted.name", "Metal Post");
 game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
 
@@ -735,7 +730,6 @@ NEI.hide(<AWWayofTime:blockMimic:0>);
 NEI.hide(<AWWayofTime:blockSchemSaver:0>);
 NEI.hide(<AWWayofTime:bloodLight:0>);
 NEI.hide(<AWWayofTime:demonPortalMain:0>);
-NEI.hide(<AWWayofTime:itemBloodMagicBook:0>);
 NEI.hide(<AWWayofTime:spectralBlock:0>);
 NEI.hide(<AWWayofTime:spectralContainer:0>);
 NEI.hide(<BiblioCraft:BiblioClipboard>);
