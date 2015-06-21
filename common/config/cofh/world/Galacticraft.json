@@ -1,0 +1,266 @@
+{
+    "moon-aluminum": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMoon", "metadata": 7},
+        "material": {"name": "GalacticraftCore:tile.moonBlock", "metadata": 4},
+        "clusterSize": 4,
+        "numClusters": 6,
+        "minHeight": 0,
+        "maxHeight": 64,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -28
+        ]
+    },
+    "moon-gold": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMoon", "metadata": 1},
+        "material": {"name": "GalacticraftCore:tile.moonBlock", "metadata": 4},
+        "clusterSize": 6,
+        "numClusters": 3,
+        "minHeight": 0,
+        "maxHeight": 32,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -28
+        ]
+    },
+    "moon-iron": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMoon", "metadata": 0},
+        "material": {"name": "GalacticraftCore:tile.moonBlock", "metadata": 4},
+        "clusterSize": 6,
+        "numClusters": 10,
+        "minHeight": 0,
+        "maxHeight": 64,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -28
+        ]
+    },
+    "moon-platinum": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMoon", "metadata": 10},
+        "material": {"name": "GalacticraftCore:tile.moonBlock", "metadata": 4},
+        "clusterSize": 4,
+        "numClusters": 1,
+        "minHeight": 0,
+        "maxHeight": 16,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -28
+        ]
+    },
+    "moon-nickel": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMoon", "metadata": 6},
+        "material": {"name": "GalacticraftCore:tile.moonBlock", "metadata": 4},
+        "clusterSize": 6,
+        "numClusters": 5,
+        "minHeight": 0,
+        "maxHeight": 48,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -28
+        ]
+    },
+    "mars-copper": {
+        "template": "uniform",
+        "block": {"name": "GalacticraftMars:tile.mars", "metadata": 0},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 4,
+        "numClusters": 8,
+        "minHeight": 60,
+        "maxHeight": 96,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "mars-iron": {
+        "template": "uniform",
+        "block": {"name": "GalacticraftMars:tile.mars", "metadata": 3},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 8,
+        "numClusters": 6,
+        "minHeight": 64,
+        "maxHeight": 96,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "mars-lead": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMars", "metadata": 4},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 4,
+        "numClusters": 6,
+        "minHeight": 0,
+        "maxHeight": 32,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "mars-nickel": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMars", "metadata": 6},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 8,
+        "numClusters": 10,
+        "minHeight": 0,
+        "maxHeight": 96,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "moon-platinum": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMars", "metadata": 10},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 4,
+        "numClusters": 1,
+        "minHeight": 0,
+        "maxHeight": 16,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "mars-tin": {
+        "template": "uniform",
+        "block": {"name": "GalacticraftMars:tile.mars", "metadata": 1},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 4,
+        "numClusters": 7,
+        "minHeight": 64,
+        "maxHeight": 96,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "mars-yellorite": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreMars", "metadata": 9},
+        "material": {"name": "GalacticraftMars:tile.mars", "metadata": 9},
+        "clusterSize": 10,
+        "numClusters": 4,
+        "minHeight": 0,
+        "maxHeight": 20,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -29
+        ]
+    },
+    "asteroid-ice-diamond": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreIce", "metadata": 0},
+        "material": {"name": "GalacticraftMars:tile.denseIce", "metadata": 0},
+        "clusterSize": 4,
+        "numClusters": 30,
+        "minHeight": 0,
+        "maxHeight": 256,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -30
+        ]
+    },
+    "asteroid-ice-platinum": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreIce", "metadata": 1},
+        "material": {"name": "GalacticraftMars:tile.denseIce", "metadata": 0},
+        "clusterSize": 4,
+        "numClusters": 30,
+        "minHeight": 0,
+        "maxHeight": 256,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -30
+        ]
+    },
+    "asteroid-rock-diamond": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreAsteroid", "metadata": 0},
+        "material": [
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 0},
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 1},
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 2}
+        ],
+        "clusterSize": 8,
+        "numClusters": 40,
+        "minHeight": 0,
+        "maxHeight": 256,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -30
+        ]
+    },
+    "asteroid-rock-platinum": {
+        "template": "uniform",
+        "block": {"name": "InterstellarOres:oreAsteroid", "metadata": 1},
+        "material": [
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 0},
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 1},
+            {"name": "GalacticraftMars:tile.asteroidsBlock", "metadata": 2}
+        ],
+        "clusterSize": 8,
+        "numClusters": 40,
+        "minHeight": 0,
+        "maxHeight": 256,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [],
+        "dimensionRestriction": "whitelist",
+        "dimensions": [
+            -30
+        ]
+    }
+}
