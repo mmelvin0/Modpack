@@ -596,7 +596,6 @@ game.setLocalization("tile.chisel.aluminum_stairs.2.name", "Aluminum Stairs");
 game.setLocalization("tile.chisel.sandstone2.name", "Sandstone");
 game.setLocalization("tile.sandstone.16.desc", "Sandstone");
 game.setLocalization("tile.sandstone.17.desc", "Sandstone");
-game.setLocalization("tile.railcraft.post.metal.unpainted.name", "Metal Post");
 game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
 
 
@@ -773,11 +772,16 @@ NEI.hide(<Botania:dirtPath0SlabFull:0>);
 NEI.hide(<Botania:dreamwood0SlabFull:0>);
 NEI.hide(<Botania:dreamwood1SlabFull:0>);
 NEI.hide(<Botania:endStoneBrick0SlabFull:0>);
+NEI.hide(<Botania:endStoneBrick2SlabFull:0>);
 NEI.hide(<Botania:fakeAir:0>);
 NEI.hide(<Botania:livingrock0SlabFull:0>);
 NEI.hide(<Botania:livingrock1SlabFull:0>);
 NEI.hide(<Botania:livingwood0SlabFull:0>);
 NEI.hide(<Botania:livingwood1SlabFull:0>);
+NEI.hide(<Botania:pavement0SlabFull:0>);
+NEI.hide(<Botania:pavement1SlabFull:0>);
+NEI.hide(<Botania:pavement2SlabFull:0>);
+NEI.hide(<Botania:pavement3SlabFull:0>);
 NEI.hide(<Botania:prismarine0SlabFull:0>);
 NEI.hide(<Botania:prismarine1SlabFull:0>);
 NEI.hide(<Botania:prismarine2SlabFull:0>);
