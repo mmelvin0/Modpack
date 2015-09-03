@@ -590,6 +590,12 @@ fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43
 //////////
 
 game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
+game.setLocalization("tile.chisel.aluminum_stairs.0.name", "Aluminum Stairs");
+game.setLocalization("tile.chisel.aluminum_stairs.1.name", "Aluminum Stairs");
+game.setLocalization("tile.chisel.aluminum_stairs.2.name", "Aluminum Stairs");
+game.setLocalization("tile.chisel.sandstone2.name", "Sandstone");
+game.setLocalization("tile.sandstone.16.desc", "Sandstone");
+game.setLocalization("tile.sandstone.17.desc", "Sandstone");
 game.setLocalization("tile.railcraft.post.metal.unpainted.name", "Metal Post");
 game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
 
@@ -802,6 +808,16 @@ NEI.hide(<CarpentersBlocks:blockCarpentersSlope:1>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:2>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:3>);
 NEI.hide(<CarpentersBlocks:blockCarpentersSlope:4>);
+NEI.hide(<chisel:aluminum_stairs.3:0>);
+NEI.hide(<chisel:aluminum_stairs.3:8>);
+NEI.hide(<chisel:aluminum_stairs.4:0>);
+NEI.hide(<chisel:aluminum_stairs.4:8>);
+NEI.hide(<chisel:aluminum_stairs.5:0>);
+NEI.hide(<chisel:aluminum_stairs.5:8>);
+NEI.hide(<chisel:aluminum_stairs.6:0>);
+NEI.hide(<chisel:aluminum_stairs.6:8>);
+NEI.hide(<chisel:aluminum_stairs.7:0>);
+NEI.hide(<chisel:aluminum_stairs.7:8>);
 NEI.hide(<chisel:amber:0>);
 NEI.hide(<chisel:bloodBrick:0>);
 NEI.hide(<chisel:limestone_slab_top:10>);
