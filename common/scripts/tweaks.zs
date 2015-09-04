@@ -13,9 +13,11 @@ import mods.nei.NEI;
 val COPPER_NUGGET = <Thaumcraft:ItemNugget:1>;
 val COPPER_INGOT = <ThermalFoundation:material:64>;
 val COPPER_BLOCK = <TConstruct:MetalBlock:3>;
+val COPPER_DUST = <IC2:itemDust:3>;
 val TIN_NUGGET = <Thaumcraft:ItemNugget:2>;
 val TIN_INGOT = <ThermalFoundation:material:65>;
 val TIN_BLOCK = <TConstruct:MetalBlock:5>;
+val TIN_DUST = <IC2:itemDust:7>;
 val IRON_NUGGET = <Thaumcraft:ItemNugget:0>;
 val IRON_INGOT = <minecraft:iron_ingot:0>;
 val IRON_BLOCK = <minecraft:iron_block:0>;
@@ -47,6 +49,7 @@ val BRONZE_NUGGET = <TConstruct:materials:31>;
 val BRONZE_INGOT = <TConstruct:materials:13>;
 val BRONZE_BLOCK = <TConstruct:MetalBlock:4>;
 val BRONZE_MOLTEN = <liquid:bronze.molten>;
+val BRONZE_DUST = <IC2:itemDust:0>;
 val STEEL_NUGGET = <Railcraft:nugget:1>;
 val STEEL_INGOT = <Railcraft:ingot:0>;
 val STEEL_BLOCK = <TConstruct:MetalBlock:9>;
@@ -70,6 +73,9 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     furnace.addRecipe(realIngot * 2, oreCluster, xp);
 
     // mariculture
+    mods.mariculture.Casting.removeNuggetRecipe(oreNugget);
+    mods.mariculture.Casting.removeIngotRecipe(oreIngot);
+    mods.mariculture.Casting.removeBlockRecipe(oreBlock);
     mods.mariculture.Casting.addNuggetRecipe(liquid * 16, realNugget);
     mods.mariculture.Casting.addIngotRecipe(liquid * 144, realIngot);
     mods.mariculture.Casting.addBlockRecipe(liquid * 1296, realBlock);
@@ -271,6 +277,9 @@ furnace.remove(<ore:ingotBronze>, <ore:dustBronze>);
 furnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>, 0.7);
 
 // mariculture
+mods.mariculture.Casting.removeNuggetRecipe(<ore:nuggetBronze>);
+mods.mariculture.Casting.removeIngotRecipe(<ore:ingotBronze>);
+mods.mariculture.Casting.removeBlockRecipe(<ore:blockBronze>);
 mods.mariculture.Casting.addNuggetRecipe(BRONZE_MOLTEN * 16, BRONZE_NUGGET);
 mods.mariculture.Casting.addIngotRecipe(BRONZE_MOLTEN * 144, BRONZE_INGOT);
 mods.mariculture.Casting.addBlockRecipe(BRONZE_MOLTEN * 1296, BRONZE_BLOCK);
@@ -282,33 +291,20 @@ mods.tconstruct.Casting.addTableRecipe(BRONZE_INGOT * 1, BRONZE_MOLTEN * 144, <T
 mods.tconstruct.Casting.addBasinRecipe(BRONZE_BLOCK * 1, BRONZE_MOLTEN * 1296, null, false, 100);
 
 // thermal expansion
-for item in <ore:dustBronze>.items {
-    mods.thermalexpansion.Furnace.removeRecipe(item);
-    mods.thermalexpansion.Furnace.addRecipe(1000, item, BRONZE_INGOT);
-}
-recipes.remove(<ThermalFoundation:material:41>);
-for item in <ore:ingotBronze>.items {
-    mods.thermalexpansion.Pulverizer.removeRecipe(item);
-    mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <IC2:itemDust:0>);
-}
-for dust in <ore:dustBronze>.items {
-    for sand in <ore:blockSand>.items {
-        mods.thermalexpansion.Smelter.removeRecipe(dust, sand);
-        mods.thermalexpansion.Smelter.addRecipe(800, dust, sand, BRONZE_INGOT, <ThermalExpansion:material:514>, 25);
-    }
-}
-for tin in <ore:dustTin>.items {
-    for copper in <ore:dustCopper>.items {
-        mods.thermalexpansion.Smelter.removeRecipe(tin, copper * 3);
-        mods.thermalexpansion.Smelter.addRecipe(1600, tin, copper * 3, BRONZE_INGOT * 4);
-    }
-}
-for tin in <ore:ingotTin>.items {
-    for copper in <ore:ingotCopper>.items {
-        mods.thermalexpansion.Smelter.removeRecipe(tin, copper * 3);
-        mods.thermalexpansion.Smelter.addRecipe(2400, tin, copper * 3, BRONZE_INGOT * 4);
-    }
-}
+recipes.remove(<ThermalFoundation:material:41>); // bronze blend
+mods.thermalexpansion.Furnace.removeRecipe(<ore:dustBronze>);
+mods.thermalexpansion.Pulverizer.removeRecipe(<ore:ingotBronze>);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:dustBronze>, <ore:sand>);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:dustTin>, <ore:dustCopper> * 3);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:ingotTin>, <ore:ingotCopper> * 3);
+mods.thermalexpansion.Furnace.addRecipe(1000, BRONZE_DUST, BRONZE_INGOT);
+mods.thermalexpansion.Pulverizer.addRecipe(2400, BRONZE_INGOT, BRONZE_DUST);
+mods.thermalexpansion.Smelter.addRecipe(800, BRONZE_DUST, <minecraft:sand>, BRONZE_INGOT, <ThermalExpansion:material:514>, 25); // slag
+mods.thermalexpansion.Smelter.addRecipe(1600, TIN_DUST, COPPER_DUST * 3, BRONZE_INGOT * 4);
+mods.thermalexpansion.Smelter.addRecipe(2400, TIN_INGOT, COPPER_INGOT * 3, BRONZE_INGOT * 4);
+
+// mekanism
+mods.mekanism.Infuser.removeRecipe(<ore:ingotBronze>);
 
 
   ///////////
@@ -323,8 +319,12 @@ furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
 furnace.addRecipe(STEEL_INGOT, <ore:dustSteel>);
 
 // mariculture
+// steel ingot not touched because it triggers a ModTweaker warning
+mods.mariculture.Casting.removeNuggetRecipe(<ore:nuggetSteel>);
+//mods.mariculture.Casting.removeIngotRecipe(<ore:ingotSteel>);
+mods.mariculture.Casting.removeBlockRecipe(<ore:blockSteel>);
 mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * 16, STEEL_NUGGET);
-mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
+//mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
 mods.mariculture.Casting.addBlockRecipe(STEEL_MOLTEN * 1296, STEEL_BLOCK);
 
 // mekanism
