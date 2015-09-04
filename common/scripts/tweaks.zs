@@ -803,7 +803,6 @@ NEI.hide(<Botania:stone3SlabFull:0>);
 NEI.hide(<Botania:stone8SlabFull:0>);
 NEI.hide(<Botania:stone9SlabFull:0>);
 NEI.hide(<Botania:thatch0SlabFull:0>);
-NEI.hide(<BuildCraft|Builders:buildToolBlock:0>);
 NEI.hide(<BuildCraft|Energy:blockRedPlasma:0>);
 NEI.hide(<BuildCraft|Transport:pipeBlock:0>);
 NEI.hide(<CarpentersBlocks:blockCarpentersBed:0>);
