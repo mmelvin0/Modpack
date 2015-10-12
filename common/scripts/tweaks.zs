@@ -443,12 +443,11 @@ recipes.addShaped(STEEL_BLOCK, [
 ]);
 
 // mariculture
-// steel ingot not touched because it triggers a ModTweaker warning
 mods.mariculture.Casting.removeNuggetRecipe(<ore:nuggetSteel>);
-//mods.mariculture.Casting.removeIngotRecipe(<ore:ingotSteel>);
+mods.mariculture.Casting.removeIngotRecipe(<ore:ingotSteel>);
 mods.mariculture.Casting.removeBlockRecipe(<ore:blockSteel>);
 mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * 16, STEEL_NUGGET);
-//mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
+mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
 mods.mariculture.Casting.addBlockRecipe(STEEL_MOLTEN * 1296, STEEL_BLOCK);
 
 // mekanism
@@ -954,9 +953,21 @@ NEI.hide(<ImmersiveEngineering:metal:6>);
 
 // extra steel nuggets
 NEI.hide(<ImmersiveEngineering:metal:29>);
+NEI.hide(<TConstruct:materials:33>);
 
 // extra steel ingots
 NEI.hide(<ImmersiveEngineering:metal:7>);
+NEI.hide(<Mekanism:Ingot:4>);
+NEI.hide(<TConstruct:materials:16>);
+
+// extra bronze nuggets
+NEI.hide(<ThermalFoundation:material:105>);
+
+// extra bronze ingots
+NEI.hide(<Forestry:ingotBronze:0>);
+NEI.hide(<IC2:itemIngot:2>);
+NEI.hide(<Mekanism:Ingot:2>);
+NEI.hide(<ThermalFoundation:material:73>);
 
 // extra dusts
 NEI.hide(<ImmersiveEngineering:metal:8>);
