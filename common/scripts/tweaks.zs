@@ -322,9 +322,6 @@ unifyNuggetIngotBlock(<ore:nuggetSteel>, <ore:ingotSteel>, <ore:blockSteel>, STE
 furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
 furnace.addRecipe(STEEL_INGOT, <ore:dustSteel>);
 
-// industrialcraft
-<ore:ingotSteel>.remove(<IC2:itemIngot:3>);
-
 // mariculture
 mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * 16, STEEL_NUGGET);
 mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
