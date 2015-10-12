@@ -58,49 +58,8 @@ val STEEL_MOLTEN = <liquid:steel.molten>;
 ///////////////
 
 function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, oreCluster as IIngredient, oreDust as IIngredient, oreCrushed as IIngredient, oreCrushedPurified as IIngredient, liquid as ILiquidStack, realNugget as IItemStack, realIngot as IItemStack, realBlock as IItemStack, banIngots as IItemStack[], banBlocks as IItemStack[], xp as float) {
-    // ingot -> nugget recipe
-    recipes.removeShaped(oreNugget * 9, [[oreIngot]]);
-    recipes.removeShapeless(oreNugget * 9, [oreIngot]);
-    recipes.addShapeless(realNugget * 9, [oreIngot]);
-
-    // nugget -> ingot recipe
-    recipes.removeShaped(oreIngot, [
-        [oreNugget, oreNugget, oreNugget],
-        [oreNugget, oreNugget, oreNugget],
-        [oreNugget, oreNugget, oreNugget]
-    ]);
-    recipes.removeShapeless(oreIngot, [
-        oreNugget, oreNugget, oreNugget,
-        oreNugget, oreNugget, oreNugget,
-        oreNugget, oreNugget, oreNugget
-    ]);
-    recipes.addShapeless(realIngot, [
-        oreNugget, oreNugget, oreNugget,
-        oreNugget, oreNugget, oreNugget,
-        oreNugget, oreNugget, oreNugget
-    ]);
-
-    // block -> ingot recipe
-    recipes.removeShaped(oreIngot * 9, [[oreBlock]]);
-    recipes.removeShapeless(oreIngot * 9, [oreBlock]);
-    recipes.addShapeless(realIngot * 9, [oreBlock]);
-
-    // ingot -> block recipe
-    recipes.removeShaped(oreBlock, [
-        [oreIngot, oreIngot, oreIngot],
-        [oreIngot, oreIngot, oreIngot],
-        [oreIngot, oreIngot, oreIngot]
-    ]);
-    recipes.removeShapeless(oreBlock, [
-        oreIngot, oreIngot, oreIngot,
-        oreIngot, oreIngot, oreIngot,
-        oreIngot, oreIngot, oreIngot
-    ]);
-    recipes.addShapeless(realBlock, [
-        oreIngot, oreIngot, oreIngot,
-        oreIngot, oreIngot, oreIngot,
-        oreIngot, oreIngot, oreIngot
-    ]);
+    // basic crafting
+    unifyNuggetIngotBlock(oreNugget, oreIngot, oreBlock, realNugget, realIngot, realBlock);
 
     // smelting
     furnace.remove(oreIngot);
@@ -157,6 +116,52 @@ function unifyDusts(crushed as IIngredient, purified as IIngredient, cluster as 
         mods.thermalexpansion.Furnace.removeRecipe(item);
         mods.thermalexpansion.Furnace.addRecipe(1600, item, ingot * 2);
     }
+}
+
+function unifyNuggetIngotBlock(oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, realNugget as IItemStack, realIngot as IItemStack, realBlock as IItemStack) {
+    // ingot -> nugget recipe
+    recipes.removeShaped(oreNugget * 9, [[oreIngot]]);
+    recipes.removeShapeless(oreNugget * 9, [oreIngot]);
+    recipes.addShapeless(realNugget * 9, [oreIngot]);
+
+    // nugget -> ingot recipe
+    recipes.removeShaped(oreIngot, [
+        [oreNugget, oreNugget, oreNugget],
+        [oreNugget, oreNugget, oreNugget],
+        [oreNugget, oreNugget, oreNugget]
+    ]);
+    recipes.removeShapeless(oreIngot, [
+        oreNugget, oreNugget, oreNugget,
+        oreNugget, oreNugget, oreNugget,
+        oreNugget, oreNugget, oreNugget
+    ]);
+    recipes.addShapeless(realIngot, [
+        oreNugget, oreNugget, oreNugget,
+        oreNugget, oreNugget, oreNugget,
+        oreNugget, oreNugget, oreNugget
+    ]);
+
+    // block -> ingot recipe
+    recipes.removeShaped(oreIngot * 9, [[oreBlock]]);
+    recipes.removeShapeless(oreIngot * 9, [oreBlock]);
+    recipes.addShapeless(realIngot * 9, [oreBlock]);
+
+    // ingot -> block recipe
+    recipes.removeShaped(oreBlock, [
+        [oreIngot, oreIngot, oreIngot],
+        [oreIngot, oreIngot, oreIngot],
+        [oreIngot, oreIngot, oreIngot]
+    ]);
+    recipes.removeShapeless(oreBlock, [
+        oreIngot, oreIngot, oreIngot,
+        oreIngot, oreIngot, oreIngot,
+        oreIngot, oreIngot, oreIngot
+    ]);
+    recipes.addShapeless(realBlock, [
+        oreIngot, oreIngot, oreIngot,
+        oreIngot, oreIngot, oreIngot,
+        oreIngot, oreIngot, oreIngot
+    ]);
 }
 
 function purgeBerries(berries as IIngredient, nuggets as IOreDictEntry) {
@@ -258,49 +263,8 @@ unifyMetal(<ore:oreArdite>, <ore:nuggetArdite>, <ore:ingotArdite>, <ore:blockArd
  // BRONZE //
 ////////////
 
-// ingot -> nugget recipe
-recipes.removeShaped(<ore:nuggetBronze> * 9, [[<ore:ingotBronze>]]);
-recipes.removeShapeless(<ore:nuggetBronze> * 9, [<ore:ingotBronze>]);
-recipes.addShapeless(BRONZE_NUGGET * 9, [<ore:ingotBronze>]);
-
-// nugget -> ingot recipe
-recipes.removeShaped(<ore:ingotBronze>, [
-    [<ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>],
-    [<ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>],
-    [<ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>]
-]);
-recipes.removeShapeless(<ore:ingotBronze>, [
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>,
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>,
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>
-]);
-recipes.addShapeless(BRONZE_INGOT, [
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>,
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>,
-    <ore:nuggetBronze>, <ore:nuggetBronze>, <ore:nuggetBronze>
-]);
-
-// block -> ingot recipe
-recipes.removeShaped(<ore:ingotBronze> * 9, [[<ore:blockBronze>]]);
-recipes.removeShapeless(<ore:ingotBronze> * 9, [<ore:blockBronze>]);
-recipes.addShapeless(BRONZE_INGOT * 9, [<ore:blockBronze>]);
-
-// ingot -> block recipe
-recipes.removeShaped(<ore:blockBronze>, [
-    [<ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>],
-    [<ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>],
-    [<ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>]
-]);
-recipes.removeShapeless(<ore:blockBronze>, [
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>,
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>,
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>
-]);
-recipes.addShapeless(BRONZE_BLOCK, [
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>,
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>,
-    <ore:ingotBronze>, <ore:ingotBronze>, <ore:ingotBronze>
-]);
+// basic crafting
+unifyNuggetIngotBlock(<ore:nuggetBronze>, <ore:ingotBronze>, <ore:blockBronze>, BRONZE_NUGGET, BRONZE_INGOT, BRONZE_BLOCK);
 
 // smelting
 furnace.remove(<ore:ingotBronze>, <ore:dustBronze>);
@@ -351,49 +315,8 @@ for tin in <ore:ingotTin>.items {
  // STEEL //
 ///////////
 
-// ingot -> nugget recipe
-recipes.removeShaped(<ore:nuggetSteel> * 9, [[<ore:ingotSteel>]]);
-recipes.removeShapeless(<ore:nuggetSteel> * 9, [<ore:ingotSteel>]);
-recipes.addShapeless(STEEL_NUGGET * 9, [<ore:ingotSteel>]);
-
-// nugget -> ingot recipe
-recipes.removeShaped(<ore:ingotSteel>, [
-    [<ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>],
-    [<ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>],
-    [<ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>]
-]);
-recipes.removeShapeless(<ore:ingotSteel>, [
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>,
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>,
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>
-]);
-recipes.addShapeless(STEEL_INGOT, [
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>,
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>,
-    <ore:nuggetSteel>, <ore:nuggetSteel>, <ore:nuggetSteel>
-]);
-
-// block -> ingot recipe
-recipes.removeShaped(<ore:ingotSteel> * 9, [[<ore:blockSteel>]]);
-recipes.removeShapeless(<ore:ingotSteel> * 9, [<ore:blockSteel>]);
-recipes.addShapeless(STEEL_INGOT * 9, [<ore:blockSteel>]);
-
-// ingot -> block recipe
-recipes.removeShaped(<ore:blockSteel>, [
-    [<ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>],
-    [<ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>],
-    [<ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>]
-]);
-recipes.removeShapeless(<ore:blockSteel>, [
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>,
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>,
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>
-]);
-recipes.addShapeless(STEEL_BLOCK, [
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>,
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>,
-    <ore:ingotSteel>, <ore:ingotSteel>, <ore:ingotSteel>
-]);
+// basic crafting
+unifyNuggetIngotBlock(<ore:nuggetSteel>, <ore:ingotSteel>, <ore:blockSteel>, STEEL_NUGGET, STEEL_INGOT, STEEL_BLOCK);
 
 // smelting
 furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
