@@ -54,6 +54,27 @@ val STEEL_NUGGET = <Railcraft:nugget:1>;
 val STEEL_INGOT = <Railcraft:ingot:0>;
 val STEEL_BLOCK = <TConstruct:MetalBlock:9>;
 val STEEL_MOLTEN = <liquid:steel.molten>;
+val ELECTRUM_NUGGET = <ThermalFoundation:material:103>;
+val ELECTRUM_INGOT = <ThermalFoundation:material:71>;
+val ELECTRUM_BLOCK = <ThermalFoundation:Storage:7>;
+val URANIUM_NUGGET = <aobd:nuggetUranium:0>;
+val URANIUM_INGOT = <AdvancedSolarPanel:asp_crafting_items:11>;
+val URANIUM_BLOCK = <IC2:blockMetal:3>;
+val ENDIUM_NUGGET = <aobd:nuggetHeeEndium:0>;
+val ENDIUM_INGOT = <HardcoreEnderExpansion:endium_ingot:0>;
+val ENDIUM_BLOCK = <HardcoreEnderExpansion:endium_block:0>;
+val PLATINUM_NUGGET = <ThermalFoundation:material:101>;
+val PLATINUM_INGOT = <ThermalFoundation:material:69>;
+val PLATINUM_BLOCK = <ThermalFoundation:Storage:5>;
+val MITHRIL_NUGGET = <ThermalFoundation:material:102>;
+val MITHRIL_INGOT = <ThermalFoundation:material:70>;
+val MITHRIL_BLOCK = <ThermalFoundation:Storage:6>;
+val YELLORIUM_NUGGET = <aobd:nuggetYellorium:0>;
+val YELLORIUM_INGOT = <BigReactors:BRIngot:0>;
+val YELLORIUM_BLOCK = <BigReactors:BRMetalBlock:0>;
+val OSMIUM_NUGGET = <aobd:nuggetOsmium:0>;
+val OSMIUM_INGOT = <Mekanism:Ingot:1>;
+val OSMIUM_BLOCK = <Mekanism:BasicBlock:0>;
 
 
   ///////////////
@@ -71,6 +92,16 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     furnace.addRecipe(realIngot, oreCrushed, xp);
     furnace.addRecipe(realIngot, oreCrushedPurified, xp);
     furnace.addRecipe(realIngot * 2, oreCluster, xp);
+
+    // immersive engineering arc furance
+    for item in oreIngot.items {
+        mods.immersiveengineering.ArcFurnace.removeRecipe(item);
+    }
+    mods.immersiveengineering.ArcFurnace.addRecipe(realIngot * 2, ore, <ThermalExpansion:material:514>, 200, 512, []);
+    mods.immersiveengineering.ArcFurnace.addRecipe(realIngot, oreDust, null, 100, 512, []);
+    mods.immersiveengineering.ArcFurnace.addRecipe(realIngot, oreCrushed, null, 100, 512, []);
+    mods.immersiveengineering.ArcFurnace.addRecipe(realIngot, oreCrushedPurified, null, 100, 512, []);
+    mods.immersiveengineering.ArcFurnace.addRecipe(realIngot * 2, oreCluster, null, 200, 512, []);
 
     // mariculture
     mods.mariculture.Casting.removeNuggetRecipe(oreNugget);
@@ -205,6 +236,17 @@ function addSaplingLoot(sapling as IItemStack) {
     vanilla.loot.addChestLoot("villageBlacksmith", sapling.weight(4), 1, 3);
 }
 
+
+
+  ///////////////
+ // RAILCRAFT //
+///////////////
+
+fixRailcraftSlabsAndStairs(COPPER_BLOCK, <Railcraft:slab:40>, <Railcraft:stair:40>);
+fixRailcraftSlabsAndStairs(TIN_BLOCK, <Railcraft:slab:41>, <Railcraft:stair:41>);
+fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43>);
+
+
   ////////////
  // METALS //
 ////////////
@@ -213,6 +255,15 @@ function addSaplingLoot(sapling as IItemStack) {
 unifyMetal(<ore:oreCopper>, <ore:nuggetCopper>, <ore:ingotCopper>, <ore:blockCopper>, <ore:clusterCopper>, <ore:dustCopper>, <ore:crushedCopper>, <ore:crushedPurifiedCopper>, <liquid:copper.molten>, COPPER_NUGGET, COPPER_INGOT, COPPER_BLOCK, [<IC2:itemIngot:0>], [<IC2:blockMetal:0>], 0.7);
 unifyDusts(<ore:crushedCopper>, <ore:crushedPurifiedCopper>, <ore:clusterCopper>, COPPER_INGOT);
 purgeBerries(<ore:oreberryCopper>, <ore:nuggetCopper>);
+// slabs
+recipes.addShaped(<ImmersiveEngineering:storage:0>, [
+    [<ImmersiveEngineering:storageSlab:0>],
+    [<ImmersiveEngineering:storageSlab:0>]
+]);
+recipes.addShaped(<TConstruct:MetalBlock:3>, [
+    [<Railcraft:slab:40>],
+    [<Railcraft:slab:40>]
+]);
 
 // tin
 unifyMetal(<ore:oreTin>, <ore:nuggetTin>, <ore:ingotTin>, <ore:blockTin>, <ore:clusterTin>, <ore:dustTin>, <ore:crushedTin>, <ore:crushedPurifiedTin>, <liquid:tin.molten>, TIN_NUGGET, TIN_INGOT, TIN_BLOCK, [<IC2:itemIngot:1>], [<IC2:blockMetal:1>], 0.7);
@@ -226,6 +277,15 @@ purgeBerries(<ore:oreberryIron>, <ore:nuggetIron>);
 // silver
 unifyMetal(<ore:oreSilver>, <ore:nuggetSilver>, <ore:ingotSilver>, <ore:blockSilver>, <ore:clusterSilver>, <ore:dustSilver>, <ore:crushedSilver>, <ore:crushedPurifiedSilver>, <liquid:silver.molten>, SILVER_NUGGET, SILVER_INGOT, SILVER_BLOCK, [<IC2:itemIngot:6>], [], 1.0);
 unifyDusts(<ore:crushedSilver>, <ore:crushedPurifiedSilver>, <ore:clusterSilver>, SILVER_INGOT);
+// slabs
+recipes.remove(<ImmersiveEngineering:storageSlab:3> * 6);
+recipes.addShaped(<ImmersiveEngineering:storageSlab:3>* 6, [
+    [<ore:blockSilver>, <ore:blockSilver>, <ore:blockSilver>]
+]);
+recipes.addShaped(SILVER_BLOCK, [
+    [<ImmersiveEngineering:storageSlab:3>],
+    [<ImmersiveEngineering:storageSlab:3>]
+]);
 
 // gold
 unifyMetal(<ore:oreGold>, <ore:nuggetGold>, <ore:ingotGold>, <ore:blockGold>, <ore:clusterGold>, <ore:dustGold>, <ore:crushedGold>, <ore:crushedPurifiedGold>, <liquid:gold.molten>, GOLD_NUGGET, GOLD_INGOT, GOLD_BLOCK, [], [], 1.0);
@@ -236,9 +296,32 @@ purgeBerries(<ore:oreberryGold>, <ore:nuggetGold>);
 // lead
 unifyMetal(<ore:oreLead>, <ore:nuggetLead>, <ore:ingotLead>, <ore:blockLead>, <ore:clusterLead>, <ore:dustLead>, <ore:crushedLead>, <ore:crushedPurifiedLead>, <liquid:lead.molten>, LEAD_NUGGET, LEAD_INGOT, LEAD_BLOCK, [<IC2:itemIngot:5>], [<IC2:blockMetal:4>], 0.7);
 unifyDusts(<ore:crushedLead>, <ore:crushedPurifiedLead>, <ore:clusterLead>, LEAD_INGOT);
+// slabs
+recipes.addShaped(<ImmersiveEngineering:storage:2>, [
+    [<ImmersiveEngineering:storageSlab:2>],
+    [<ImmersiveEngineering:storageSlab:2>]
+]);
+recipes.addShaped(LEAD_BLOCK, [
+    [<Railcraft:slab:42>],
+    [<Railcraft:slab:42>]
+]);
 
 // nickel (ferrous metal)
 unifyMetal(<ore:oreNickel>, <ore:nuggetNickel>, <ore:ingotNickel>, <ore:blockNickel>, <ore:clusterNickel>, <ore:dustNickel>, <ore:crushedNickel>, <ore:crushedPurifiedNickel>, <liquid:nickel.molten>, NICKEL_NUGGET, NICKEL_INGOT, NICKEL_BLOCK, [], [], 0.7);
+// slabs
+recipes.remove(<ImmersiveEngineering:storageSlab:4> * 6);
+recipes.addShaped(<ImmersiveEngineering:storageSlab:4>* 6, [
+    [<ore:blockNickel>, <ore:blockNickel>, <ore:blockNickel>]
+]);
+recipes.addShaped(NICKEL_BLOCK, [
+    [<ImmersiveEngineering:storageSlab:4>],
+    [<ImmersiveEngineering:storageSlab:4>]
+]);
+// chisel
+mods.chisel.Groups.addGroup("nickel_block");
+for item in <ore:blockNickel>.items {
+    mods.chisel.Groups.addVariation("nickel_block", item);
+}
 
 // aluminium
 // make sure things called "aluminum" also count as "aluminium"
@@ -254,6 +337,15 @@ unifyMetal(<ore:oreAluminium>, <ore:nuggetAluminium>, <ore:ingotAluminium>, <ore
 //}
 purgeBerries(<ore:oreberryAluminium>, <ore:nuggetAluminium>);
 recipes.remove(<GalacticraftCore:tile.gcBlockCore:11>);
+// slabs
+recipes.remove(<ImmersiveEngineering:storageSlab:1> * 6);
+recipes.addShaped(<ImmersiveEngineering:storageSlab:1> * 6, [
+    [<ore:blockAluminum>, <ore:blockAluminum>, <ore:blockAluminum>]
+]);
+recipes.addShaped(ALUMINIUM_BLOCK, [
+    [<ImmersiveEngineering:storageSlab:1>],
+    [<ImmersiveEngineering:storageSlab:1>]
+]);
 
 // rutile (impure titantium)
 unifyMetal(<ore:oreRutile>, <ore:nuggetRutile>, <ore:ingotRutile>, <ore:blockRutile>, <ore:clusterRutile>, <ore:dustRutile>, <ore:crushedRutile>, <ore:crushedPurifiedRutile>, <liquid:rutile.molten>, RUTILE_NUGGET, RUTILE_INGOT, RUTILE_BLOCK, [], [], 0.7);
@@ -263,6 +355,24 @@ unifyMetal(<ore:oreCobalt>, <ore:nuggetCobalt>, <ore:ingotCobalt>, <ore:blockCob
 
 // ardite
 unifyMetal(<ore:oreArdite>, <ore:nuggetArdite>, <ore:ingotArdite>, <ore:blockArdite>, <ore:clusterArdite>, <ore:dustArdite>, <ore:crushedArdite>, <ore:crushedPurifiedArdite>, <liquid:ardite.molten>, ARDITE_NUGGET, ARDITE_INGOT, ARDITE_BLOCK, [], [], 0.7);
+
+// uranium
+unifyMetal(<ore:oreUranium>, <ore:nuggetUranium>, <ore:ingotUranium>, <ore:blockUranium>, <ore:clusterUranium>, <ore:dustUranium>, <ore:crushedUranium>, <ore:crushedPurifiedUranium>, <liquid:uranium>, URANIUM_NUGGET, URANIUM_INGOT, URANIUM_BLOCK, [], [], 0.7);
+
+// endium
+unifyMetal(<ore:oreHeeEndium>, <ore:nuggetHeeEndium>, <ore:ingotHeeEndium>, <ore:blockHeeEndium>, <ore:clusterHeeEndium>, <ore:dustHeeEndium>, <ore:crushedHeeEndium>, <ore:crushedPurifiedHeeEndium>, <liquid:heeendium>, ENDIUM_NUGGET, ENDIUM_INGOT, ENDIUM_BLOCK, [], [], 0.7);
+
+// platinum
+unifyMetal(<ore:orePlatinum>, <ore:nuggetPlatinum>, <ore:ingotPlatinum>, <ore:blockPlatinum>, <ore:clusterPlatinum>, <ore:dustPlatinum>, <ore:crushedPlatinum>, <ore:crushedPurifiedPlatinum>, <liquid:platinum.molten>, PLATINUM_NUGGET, PLATINUM_INGOT, PLATINUM_BLOCK, [], [], 0.7);
+
+// mithril
+unifyMetal(<ore:oreMithril>, <ore:nuggetMithril>, <ore:ingotMithril>, <ore:blockMithril>, <ore:clusterMithril>, <ore:dustMithril>, <ore:crushedMithril>, <ore:crushedPurifiedMithril>, <liquid:mithril.molten>, MITHRIL_NUGGET, MITHRIL_INGOT, MITHRIL_BLOCK, [], [], 0.7);
+
+// yellorium
+unifyMetal(<ore:oreYellorium>, <ore:nuggetYellorium>, <ore:ingotYellorium>, <ore:blockYellorium>, <ore:clusterYellorium>, <ore:dustYellorium>, <ore:crushedYellorium>, <ore:crushedPurifiedYellorium>, <liquid:yellorium>, YELLORIUM_NUGGET, YELLORIUM_INGOT, YELLORIUM_BLOCK, [], [], 0.7);
+
+// osmium
+unifyMetal(<ore:oreOsmium>, <ore:nuggetOsmium>, <ore:ingotOsmium>, <ore:blockOsmium>, <ore:clusterOsmium>, <ore:dustOsmium>, <ore:crushedOsmium>, <ore:crushedPurifiedOsmium>, <liquid:osmium>, OSMIUM_NUGGET, OSMIUM_INGOT, OSMIUM_BLOCK, [], [], 0.7);
 
 
   ////////////
@@ -307,6 +417,10 @@ mods.thermalexpansion.Smelter.addRecipe(2400, TIN_INGOT, COPPER_INGOT * 3, BRONZ
 mods.mekanism.Infuser.removeRecipe(<ore:ingotBronze>);
 
 
+// immersive engineering
+mods.immersiveengineering.ArcFurnace.removeRecipe(<ThermalFoundation:material:73>);
+mods.immersiveengineering.ArcFurnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>, null, 100, 512, []);
+
   ///////////
  // STEEL //
 ///////////
@@ -317,6 +431,16 @@ unifyNuggetIngotBlock(<ore:nuggetSteel>, <ore:ingotSteel>, <ore:blockSteel>, STE
 // smelting
 furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
 furnace.addRecipe(STEEL_INGOT, <ore:dustSteel>);
+
+// slabs
+recipes.addShaped(<ImmersiveEngineering:storage:7>, [
+    [<ImmersiveEngineering:storageSlab:7>],
+    [<ImmersiveEngineering:storageSlab:7>]
+]);
+recipes.addShaped(STEEL_BLOCK, [
+    [<Railcraft:slab:43>],
+    [<Railcraft:slab:43>]
+]);
 
 // mariculture
 // steel ingot not touched because it triggers a ModTweaker warning
@@ -356,6 +480,168 @@ recipes.addShaped(<TSteelworks:HighOven:0>, [
     [<TSteelworks:Materials:0>, <minecraft:blaze_rod:0>, <TSteelworks:Materials:0>],
     [<TSteelworks:Materials:0>, <TSteelworks:Materials:0>, <TSteelworks:Materials:0>],
 ]);
+
+// immersive engineering
+mods.immersiveengineering.ArcFurnace.removeRecipe(<ImmersiveEngineering:metal:7>);
+mods.immersiveengineering.ArcFurnace.addRecipe(STEEL_INGOT, <ore:ingotIron>, <ThermalExpansion:material:514>, 400, 512, [<ore:dustCoke>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(STEEL_INGOT, <ore:dustIron>, <ThermalExpansion:material:514>, 400, 512, [<ore:dustCoke>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(STEEL_INGOT, <ore:crushedIron>, <ThermalExpansion:material:514>, 400, 512, [<ore:dustCoke>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(STEEL_INGOT, <ore:crushedPurifiedIron>, <ThermalExpansion:material:514>, 400, 512, [<ore:dustCoke>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(STEEL_INGOT, <ore:dustSteel>, null, 100, 512, []);
+
+
+  //////////////
+ // ELECTRUM //
+//////////////
+
+// basic crafting
+unifyNuggetIngotBlock(<ore:nuggetElectrum>, <ore:ingotElectrum>, <ore:blockElectrum>, ELECTRUM_NUGGET, ELECTRUM_INGOT, ELECTRUM_BLOCK);
+
+// smelting
+furnace.remove(<ore:ingotElectrum>, <ore:dustElectrum>);
+furnace.addRecipe(ELECTRUM_INGOT, <ore:dustElectrum>);
+
+// remove recipe for electrum grit
+recipes.remove(<ImmersiveEngineering:metal:16>);
+
+// immersive engineering crusher should produce electrum blend
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:16>);
+mods.immersiveengineering.Crusher.addRecipe(<ThermalFoundation:material:39>, <ore:ingotElectrum>, 3600, null, 0.0);
+
+// slabs
+recipes.remove(<ImmersiveEngineering:storageSlab:6> * 6);
+recipes.addShaped(<ImmersiveEngineering:storageSlab:6> * 6, [
+    [<ore:blockElectrum>, <ore:blockElectrum>, <ore:blockElectrum>]
+]);
+recipes.addShaped(ELECTRUM_BLOCK, [
+    [<ImmersiveEngineering:storageSlab:6>],
+    [<ImmersiveEngineering:storageSlab:6>]
+]);
+
+// chisel
+mods.chisel.Groups.addGroup("electrum_block");
+for item in <ore:blockElectrum>.items {
+    mods.chisel.Groups.addVariation("electrum_block", item);
+}
+
+
+  ////////////////////////
+ // THERMAL FOUNDATION //
+////////////////////////
+
+// make TF and IE slag act the same
+<ore:itemSlag>.add(<ThermalExpansion:material:514>);
+
+// clay
+recipes.removeShapeless(<minecraft:clay_ball> * 4, [
+    <ThermalExpansion:material:514>, <ThermalExpansion:material:514>,
+    <ore:dirt>, <minecraft:water_bucket>
+]);
+recipes.addShapeless(<minecraft:clay_ball> * 4, [
+    <ore:itemSlag>, <ore:itemSlag>,
+    <ore:dirt>, <minecraft:water_bucket>.giveBack(<minecraft:bucket>)
+]);
+
+// phyto-gro
+recipes.removeShapeless(<ThermalExpansion:material:516> * 8, [
+    <ore:dustWood>, <ore:dustWood>,
+    <ore:dustSaltpeter>, <ThermalExpansion:material:514>
+]);
+recipes.addShapeless(<ThermalExpansion:material:516> * 8, [
+    <ore:dustWood>, <ore:dustWood>,
+    <ore:dustSaltpeter>, <ore:itemSlag>
+]);
+recipes.removeShapeless(<ThermalExpansion:material:516> * 32, [
+    <ore:dustCharcoal>, <ore:dustSaltpeter>,
+    <ThermalExpansion:material:514>
+]);
+recipes.addShapeless(<ThermalExpansion:material:516> * 32, [
+    <ore:dustCharcoal>, <ore:dustSaltpeter>,
+    <ore:itemSlag>
+]);
+
+// rockwool
+furnace.remove(<ThermalExpansion:Rockwool:8>, <ThermalExpansion:material:514>);
+furnace.addRecipe(<ThermalExpansion:Rockwool:8>, <ore:itemSlag>);
+mods.thermalexpansion.Furnace.addRecipe(1600, <ImmersiveEngineering:material:13>, <ThermalExpansion:Rockwool:8>);
+
+
+  ///////////////////////////
+ // IMMERSIVE ENGINEERING //
+///////////////////////////
+
+
+// make coke oven work exactly like railcraft
+mods.immersiveengineering.CokeOven.removeRecipe(<ImmersiveEngineering:material:6>);
+mods.immersiveengineering.CokeOven.removeRecipe(<ImmersiveEngineering:stoneDecoration:3>);
+mods.immersiveengineering.CokeOven.removeRecipe(<minecraft:coal:1>);
+mods.immersiveengineering.CokeOven.addRecipe(<minecraft:coal:1>, 250, <ore:logWood>, 1800);
+mods.immersiveengineering.CokeOven.addRecipe(<Railcraft:fuel.coke:0>, 500, <ore:coal>, 1800);
+mods.immersiveengineering.CokeOven.addRecipe(<Railcraft:cube:0>, 4500, <ore:blockCoal>, 16200);
+
+// make blast furnace work like railcraft
+mods.immersiveengineering.BlastFurnace.removeRecipe(<ImmersiveEngineering:metal:7>);
+mods.immersiveengineering.BlastFurnace.removeRecipe(<ImmersiveEngineering:storage:7>);
+mods.immersiveengineering.BlastFurnace.addRecipe(STEEL_INGOT, <ore:ingotIron>, 1280);
+mods.immersiveengineering.BlastFurnace.addRecipe(STEEL_BLOCK, <ore:blockIron>, 11520);
+
+// crusher
+
+// nether quartz
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:18>);
+mods.immersiveengineering.Crusher.addRecipe(<appliedenergistics2:item.ItemMultiMaterial:3>, <ore:crystalNetherQuartz>, 4800, null, 0);
+// blaze rod
+mods.immersiveengineering.Crusher.removeRecipe(<minecraft:blaze_powder>);
+mods.immersiveengineering.Crusher.addRecipe(<minecraft:blaze_powder> * 4, <minecraft:blaze_rod>, 1600, <IC2:itemDust:13>, 0.5);
+// coal
+mods.immersiveengineering.Crusher.removeRecipe(<ThermalFoundation:material:2>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:2>, <ore:coal>, 2400, null, 0);
+// gold
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:9>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:4>, <ore:ingotGold>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:4> * 2, <ore:oreGold>, 6000, <ThermalFoundation:material:20>, 0.05);
+// iron
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:8>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:5>, <ore:ingotIron>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:5> * 2, <ore:oreIron>, 6000, <ThermalFoundation:material:36>, 0.1);
+// nether quartz ore
+mods.immersiveengineering.Crusher.removeRecipe(<minecraft:quartz>);
+mods.immersiveengineering.Crusher.addRecipe(<minecraft:quartz> * 3, <ore:oreQuartz>, 6000, <appliedenergistics2:item.ItemMultiMaterial:3>, 0.1);
+// copper
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:10>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:3>, <ore:ingotCopper>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:3> * 2, <ore:oreCopper>, 6000, <IC2:itemDust:4>, 0.1);
+// tin
+mods.immersiveengineering.Crusher.removeRecipe(<ThermalFoundation:material:33>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:7>, <ore:ingotTin>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:7> * 2, <ore:oreTin>, 6000, <IC2:itemDust:5>, 0.1);
+// lead
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:12>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:10>, <ore:ingotLead>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:10> * 2, <ore:oreLead>, 6000, <IC2:itemDust:6>, 0.1);
+// silver
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:13>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:6>, <ore:ingotSilver>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:6> * 2, <ore:oreSilver>, 6000, <IC2:itemDust:10>, 0.1);
+// nickel
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:14>);
+mods.immersiveengineering.Crusher.addRecipe(<ThermalFoundation:material:36>, <ore:ingotNickel>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<ThermalFoundation:material:36> * 2, <ore:oreNickel>, 6000, <ThermalFoundation:material:37>, 0.1);
+// yellorium
+mods.immersiveengineering.Crusher.removeRecipe(<BigReactors:BRIngot:4>);
+mods.immersiveengineering.Crusher.addRecipe(<BigReactors:BRIngot:4>, <ore:ingotYellorium>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<BigReactors:BRIngot:4> * 2, <ore:oreYellorite>, 6000, <BigReactors:BRIngot:4>, 0.1);
+// sulfur
+mods.immersiveengineering.Crusher.removeRecipe(<ThermalFoundation:material:16>);
+mods.immersiveengineering.Crusher.addRecipe(<IC2:itemDust:13> * 6, <ore:oreSulfur>, 6000, null, 0);
+// aluminium
+mods.immersiveengineering.Crusher.removeRecipe(<ImmersiveEngineering:metal:11>);
+mods.immersiveengineering.Crusher.addRecipe(<TConstruct:materials:40>, <ore:ingotAluminium>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<TConstruct:materials:40> * 2, <ore:oreAluminium>, 6000, null, 0);
+// osmium
+mods.immersiveengineering.Crusher.removeRecipe(<Mekanism:Dust:2>);
+mods.immersiveengineering.Crusher.addRecipe(<Mekanism:Dust:2>, <ore:ingotOsmium>, 3600, null, 0);
+mods.immersiveengineering.Crusher.addRecipe(<Mekanism:Dust:2> * 2, <ore:oreOsmium>, 6000, null, 0);
 
 
   ///////////
@@ -496,15 +782,6 @@ addSaplingLoot(<BiomesOPlenty:colorizedSaplings:4>);
 addSaplingLoot(<BiomesOPlenty:colorizedSaplings:6>);
 
 
-  ///////////////
- // RAILCRAFT //
-///////////////
-
-fixRailcraftSlabsAndStairs(COPPER_BLOCK, <Railcraft:slab:40>, <Railcraft:stair:40>);
-fixRailcraftSlabsAndStairs(TIN_BLOCK, <Railcraft:slab:41>, <Railcraft:stair:41>);
-fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43>);
-
-
   //////////
  // L18N //
 //////////
@@ -549,12 +826,14 @@ NEI.hide(<TConstruct:GravelOre:5>);
 NEI.hide(<Forestry:resources:1>);
 NEI.hide(<GalacticraftCore:tile.gcBlockCore:5>);
 NEI.hide(<IC2:blockOreCopper:0>);
+NEI.hide(<ImmersiveEngineering:ore:0>);
 NEI.hide(<Mariculture:rocks:1>);
 NEI.hide(<Mekanism:OreBlock:1>);
 NEI.hide(<Railcraft:ore:9>);
 NEI.hide(<TConstruct:SearedBrick:3>);
 
 // extra copper nuggets
+NEI.hide(<ImmersiveEngineering:metal:22>);
 NEI.hide(<Mariculture:materials:38>);
 NEI.hide(<Railcraft:nugget:2>);
 NEI.hide(<ThermalFoundation:material:96>);
@@ -563,6 +842,7 @@ NEI.hide(<ThermalFoundation:material:96>);
 NEI.hide(<Forestry:ingotCopper:0>);
 NEI.hide(<GalacticraftCore:item.basicItem:3>);
 NEI.hide(<IC2:itemIngot:0>);
+NEI.hide(<ImmersiveEngineering:metal:0>);
 NEI.hide(<Mariculture:materials:4>);
 NEI.hide(<Mekanism:Ingot:5>);
 NEI.hide(<Railcraft:ingot:1>);
@@ -605,27 +885,36 @@ NEI.hide(<Mekanism:BasicBlock:13>);
 NEI.hide(<ThermalFoundation:Storage:1>);
 
 // extra iron nuggets
+NEI.hide(<ImmersiveEngineering:metal:21>);
 NEI.hide(<Mariculture:materials:33>);
 NEI.hide(<OpenComputers:item:16>);
 NEI.hide(<Railcraft:nugget:0>);
 NEI.hide(<ThermalFoundation:material:8>);
 
+// extra silver ores
+NEI.hide(<ImmersiveEngineering:ore:3>);
+
 // extra silver nuggets
+NEI.hide(<ImmersiveEngineering:metal:25>);
 NEI.hide(<ThermalFoundation:material:98>);
 
 // extra silver ingots
 NEI.hide(<IC2:itemIngot:6>);
+NEI.hide(<ImmersiveEngineering:metal:3>);
 
 // extra lead ores
 NEI.hide(<IC2:blockOreLead:0>);
+NEI.hide(<ImmersiveEngineering:ore:2>);
 NEI.hide(<Railcraft:ore:11>);
 
 // extra lead nuggets
+NEI.hide(<ImmersiveEngineering:metal:24>);
 NEI.hide(<Railcraft:nugget:4>);
 NEI.hide(<ThermalFoundation:material:99>);
 
 // extra lead ingots
 NEI.hide(<IC2:itemIngot:5>);
+NEI.hide(<ImmersiveEngineering:metal:2>);
 NEI.hide(<Railcraft:ingot:3>);
 
 // extra lead blocks
@@ -634,17 +923,50 @@ NEI.hide(<ThermalFoundation:Storage:3>);
 
 // extra aluminum ores
 NEI.hide(<GalacticraftCore:tile.gcBlockCore:7>);
+NEI.hide(<ImmersiveEngineering:ore:1>);
 
 // extra aluminum nuggets
 NEI.hide(<Mariculture:materials:34>);
 
 // extra aluminum ingots
 NEI.hide(<GalacticraftCore:item.basicItem:5>);
+NEI.hide(<ImmersiveEngineering:metal:1>);
 NEI.hide(<Mariculture:materials:0>);
 
 // extra aluminum blocks
 NEI.hide(<GalacticraftCore:tile.gcBlockCore:11>);
 NEI.hide(<Mariculture:metals:1>);
+
+// extra nickel ores
+NEI.hide(<ImmersiveEngineering:ore:4>);
+
+// extra nickel ingots
+NEI.hide(<ImmersiveEngineering:metal:26>);
+
+// extra nickel ingots
+NEI.hide(<ImmersiveEngineering:metal:4>);
+
+// extra electrum nuggets
+NEI.hide(<ImmersiveEngineering:metal:28>);
+
+// extra electrum ingots
+NEI.hide(<ImmersiveEngineering:metal:6>);
+
+// extra steel nuggets
+NEI.hide(<ImmersiveEngineering:metal:29>);
+
+// extra steel ingots
+NEI.hide(<ImmersiveEngineering:metal:7>);
+
+// extra dusts
+NEI.hide(<ImmersiveEngineering:metal:8>);
+NEI.hide(<ImmersiveEngineering:metal:9>);
+NEI.hide(<ImmersiveEngineering:metal:10>);
+NEI.hide(<ImmersiveEngineering:metal:12>);
+NEI.hide(<ImmersiveEngineering:metal:13>);
+NEI.hide(<ImmersiveEngineering:metal:14>);
+NEI.hide(<ImmersiveEngineering:metal:16>);
+NEI.hide(<ImmersiveEngineering:metal:18>);
 
 // uncraftable/obsolete/unnamed items
 NEI.hide(<appliedenergistics2:tile.BlockCableBus:0>);
