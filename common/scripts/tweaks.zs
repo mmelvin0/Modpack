@@ -404,9 +404,9 @@ mods.tconstruct.Casting.addBasinRecipe(BRONZE_BLOCK * 1, BRONZE_MOLTEN * 1296, n
 recipes.remove(<ThermalFoundation:material:41>); // bronze blend
 mods.thermalexpansion.Furnace.removeRecipe(<ore:dustBronze>);
 mods.thermalexpansion.Pulverizer.removeRecipe(<ore:ingotBronze>);
-mods.thermalexpansion.Smelter.removeRecipe(<ore:dustBronze>, <ore:sand>);
-mods.thermalexpansion.Smelter.removeRecipe(<ore:dustTin>, <ore:dustCopper> * 3);
-mods.thermalexpansion.Smelter.removeRecipe(<ore:ingotTin>, <ore:ingotCopper> * 3);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:sand>, <ore:dustBronze>);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:dustCopper> * 3, <ore:dustTin>);
+mods.thermalexpansion.Smelter.removeRecipe(<ore:ingotCopper> * 3, <ore:ingotTin>);
 mods.thermalexpansion.Furnace.addRecipe(1000, BRONZE_DUST, BRONZE_INGOT);
 mods.thermalexpansion.Pulverizer.addRecipe(2400, BRONZE_INGOT, BRONZE_DUST);
 mods.thermalexpansion.Smelter.addRecipe(800, BRONZE_DUST, <minecraft:sand>, BRONZE_INGOT, <ThermalExpansion:material:514>, 25); // slag
