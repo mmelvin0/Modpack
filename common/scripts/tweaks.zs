@@ -647,13 +647,149 @@ mods.immersiveengineering.Crusher.addRecipe(<Mekanism:Dust:2> * 2, <ore:oreOsmiu
  // GEARS //
 ///////////
 
-// extra iron gears
+// copper
+recipes.remove(<ore:gearCopper>);
+NEI.hide(<Forestry:gearCopper>);
+mods.tconstruct.Smeltery.removeMelting(<ore:gearCopper>);
+mods.tconstruct.Casting.removeTableRecipe(<ore:gearCopper>);
+recipes.addShaped(<ThermalFoundation:material:128>, [
+    [null, <ore:ingotCopper>, null],
+    [<ore:ingotCopper>, <ore:gearStone>, <ore:ingotCopper>],
+    [null, <ore:ingotCopper>, null],
+]);
+mods.tconstruct.Smeltery.addMelting(<ore:gearCopper>, <liquid:copper.molten> * 576, 650, COPPER_BLOCK);
+mods.tconstruct.Casting.addTableRecipe(<ThermalFoundation:material:128>, <liquid:copper.molten> * 576, <TConstruct:gearCast>, false, 50);
+
+// tin
+recipes.remove(<ore:gearTin>);
+NEI.hide(<Forestry:gearTin>);
+mods.tconstruct.Smeltery.removeMelting(<ore:gearTin>);
+mods.tconstruct.Casting.removeTableRecipe(<ore:gearTin>);
+recipes.addShaped(<ThermalFoundation:material:129>, [
+    [null, <ore:ingotTin>, null],
+    [<ore:ingotTin>, <ore:gearStone>, <ore:ingotTin>],
+    [null, <ore:ingotTin>, null],
+]);
+mods.tconstruct.Smeltery.addMelting(<ore:gearTin>, <liquid:tin.molten> * 576, 500, TIN_BLOCK);
+mods.tconstruct.Casting.addTableRecipe(<ThermalFoundation:material:129>, <liquid:tin.molten> * 576, <TConstruct:gearCast>, false, 50);
+
+// bronze
+recipes.remove(<ore:gearBronze>);
+NEI.hide(<Forestry:gearBronze>);
+mods.tconstruct.Smeltery.removeMelting(<ore:gearBronze>);
+mods.tconstruct.Casting.removeTableRecipe(<ore:gearBronze>);
+recipes.addShaped(<ThermalFoundation:material:137>, [
+    [null, <ore:ingotBronze>, null],
+    [<ore:ingotBronze>, <ore:gearStone>, <ore:ingotBronze>],
+    [null, <ore:ingotBronze>, null],
+]);
+mods.tconstruct.Smeltery.addMelting(<ore:gearBronze>, <liquid:bronze.molten> * 576, 600, BRONZE_BLOCK);
+mods.tconstruct.Casting.addTableRecipe(<ThermalFoundation:material:137>, <liquid:bronze.molten> * 576, <TConstruct:gearCast>, false, 50);
+
+// iron
 recipes.remove(<Railcraft:part.gear:1>);
 recipes.remove(<ThermalFoundation:material:12>);
-<ore:gearIron>.remove(<Railcraft:part.gear:1>);
-<ore:gearIron>.remove(<ThermalFoundation:material:12>);
 NEI.hide(<Railcraft:part.gear:1>);
 NEI.hide(<ThermalFoundation:material:12>);
+mods.tconstruct.Smeltery.removeMelting(<ore:gearIron>);
+mods.tconstruct.Casting.removeTableRecipe(<ore:gearIron>);
+mods.tconstruct.Smeltery.addMelting(<ore:gearIron>, <liquid:iron.molten> * 576, 700, IRON_BLOCK);
+mods.tconstruct.Casting.addTableRecipe(<BuildCraft|Core:ironGearItem>, <liquid:iron.molten> * 576, <TConstruct:gearCast>, false, 50);
+
+// gold
+recipes.remove(<ThermalFoundation:material:13>);
+NEI.hide(<ThermalFoundation:material:13>);
+mods.tconstruct.Smeltery.removeMelting(<ore:gearGold>);
+mods.tconstruct.Casting.removeTableRecipe(<ore:gearGold>);
+mods.tconstruct.Smeltery.addMelting(<ore:gearGold>, <liquid:gold.molten> * 576, 500, GOLD_BLOCK);
+mods.tconstruct.Casting.addTableRecipe(<BuildCraft|Core:goldGearItem>, <liquid:gold.molten> * 576, <TConstruct:gearCast>, false, 50);
+
+// compressed iron
+recipes.removeShaped(<PneumaticCraft:compressedIronGear>, [
+    [null, <ore:ingotIronCompressed>, null],
+    [<ore:ingotIronCompressed>, <ore:ingotIron>, <ore:ingotIronCompressed>],
+    [null, <ore:ingotIronCompressed>, null]
+]);
+
+// silver
+recipes.remove(<ThermalFoundation:material:130>);
+recipes.addShaped(<ThermalFoundation:material:130>, [
+    [null, <ore:ingotSilver>, null],
+    [<ore:ingotSilver>, <ore:gearIron>, <ore:ingotSilver>],
+    [null, <ore:ingotSilver>, null]
+]);
+
+// lead
+recipes.remove(<ThermalFoundation:material:131>);
+recipes.addShaped(<ThermalFoundation:material:131>, [
+    [null, <ore:ingotLead>, null],
+    [<ore:ingotLead>, <ore:gearStone>, <ore:ingotLead>],
+    [null, <ore:ingotLead>, null]
+]);
+
+// ferrous (nickel)
+recipes.remove(<ThermalFoundation:material:132>);
+recipes.addShaped(<ThermalFoundation:material:132>, [
+    [null, <ore:ingotNickel>, null],
+    [<ore:ingotNickel>, <ore:gearStone>, <ore:ingotNickel>],
+    [null, <ore:ingotNickel>, null]
+]);
+
+// shiny (platinum)
+recipes.remove(<ThermalFoundation:material:133>);
+recipes.addShaped(<ThermalFoundation:material:133>, [
+    [null, <ore:ingotPlatinum>, null],
+    [<ore:ingotPlatinum>, <ore:gearDiamond>, <ore:ingotPlatinum>],
+    [null, <ore:ingotPlatinum>, null]
+]);
+
+// mana infused (mithril)
+recipes.remove(<ThermalFoundation:material:134>);
+recipes.addShaped(<ThermalFoundation:material:134>, [
+    [null, <ore:ingotMithril>, null],
+    [<ore:ingotMithril>, <ore:gearPlatinum>, <ore:ingotMithril>],
+    [null, <ore:ingotMithril>, null]
+]);
+
+// electrum
+recipes.remove(<ThermalFoundation:material:135>);
+recipes.addShaped(<ThermalFoundation:material:135>, [
+    [null, <ore:ingotElectrum>, null],
+    [<ore:ingotElectrum>, <ore:gearIron>, <ore:ingotElectrum>],
+    [null, <ore:ingotElectrum>, null]
+]);
+
+// invar
+recipes.remove(<ThermalFoundation:material:136>);
+recipes.addShaped(<ThermalFoundation:material:136>, [
+    [null, <ore:ingotInvar>, null],
+    [<ore:ingotInvar>, <ore:gearIron>, <ore:ingotInvar>],
+    [null, <ore:ingotElectrum>, null]
+]);
+
+// signalum
+recipes.remove(<ThermalFoundation:material:138>);
+recipes.addShaped(<ThermalFoundation:material:138>, [
+    [null, <ore:ingotSignalum>, null],
+    [<ore:ingotSignalum>, <ore:gearGold>, <ore:ingotSignalum>],
+    [null, <ore:ingotSignalum>, null]
+]);
+
+// lumium
+recipes.remove(<ThermalFoundation:material:139>);
+recipes.addShaped(<ThermalFoundation:material:139>, [
+    [null, <ore:ingotLumium>, null],
+    [<ore:ingotLumium>, <ore:gearGold>, <ore:ingotLumium>],
+    [null, <ore:ingotLumium>, null]
+]);
+
+// enderium
+recipes.remove(<ThermalFoundation:material:140>);
+recipes.addShaped(<ThermalFoundation:material:140>, [
+    [null, <ore:ingotEnderium>, null],
+    [<ore:ingotEnderium>, <ore:gearDiamond>, <ore:ingotEnderium>],
+    [null, <ore:ingotEnderium>, null]
+]);
 
 
   ////////////////////
