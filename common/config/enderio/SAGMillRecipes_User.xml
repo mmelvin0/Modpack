@@ -98,4 +98,15 @@
 
 <SAGMillRecipes>
 
+  <recipeGroup name="Custom">
+    <recipe name="Diamond Dust" energyCost="2400">
+      <input>
+        <itemStack oreDictionary="gemDiamond" />
+      </input>
+      <output>
+        <itemStack modID="IC2" itemName="itemDust2" itemMeta="1" number="1" />
+      </output>
+    </recipe>
+  </recipeGroup>
+
 </SAGMillRecipes>
