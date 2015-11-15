@@ -117,7 +117,7 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
         mods.mariculture.Crucible.addRecipe(1085, item, liquid * 144);
     }
     for item in oreCluster.items {
-        mods.mariculture.Crucible.addRecipe(1085, item, liquid * 144 * 2);
+        mods.mariculture.Crucible.addRecipe(1085, item, liquid * 288);
     }
 
     // tinker's construct
@@ -136,7 +136,7 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
         mods.tconstruct.Smeltery.addMelting(item, liquid * 144, 200, realBlock);
     }
     for item in oreCluster.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 144 * 2, 200, realBlock);
+        mods.tconstruct.Smeltery.addMelting(item, liquid * 288, 200, realBlock);
     }
 }
 
