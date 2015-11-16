@@ -21,67 +21,82 @@ val TIN_DUST = <IC2:itemDust:7>;
 val IRON_NUGGET = <Thaumcraft:ItemNugget:0>;
 val IRON_INGOT = <minecraft:iron_ingot:0>;
 val IRON_BLOCK = <minecraft:iron_block:0>;
+val IRON_DUST = <IC2:itemDust:5>;
 val SILVER_NUGGET = <Thaumcraft:ItemNugget:3>;
 val SILVER_INGOT = <ThermalFoundation:material:66>;
 val SILVER_BLOCK = <ThermalFoundation:Storage:2>;
+val SILVER_DUST = <IC2:itemDust:6>;
 val GOLD_NUGGET = <minecraft:gold_nugget:0>;
 val GOLD_INGOT = <minecraft:gold_ingot:0>;
 val GOLD_BLOCK = <minecraft:gold_block:0>;
+val GOLD_DUST = <IC2:itemDust:4>;
 val LEAD_NUGGET = <Thaumcraft:ItemNugget:4>;
 val LEAD_INGOT = <ThermalFoundation:material:67>;
 val LEAD_BLOCK = <Railcraft:cube:11>;
+val LEAD_DUST = <IC2:itemDust:10>;
 val NICKEL_NUGGET = <ThermalFoundation:material:100>;
 val NICKEL_INGOT = <ThermalFoundation:material:68>;
 val NICKEL_BLOCK = <ThermalFoundation:Storage:4>;
+val NICKEL_DUST = <ThermalFoundation:material:36>;
 val ALUMINIUM_NUGGET = <TConstruct:materials:22>;
 val ALUMINIUM_INGOT = <TConstruct:materials:11>;
 val ALUMINIUM_BLOCK = <TConstruct:MetalBlock:6>;
+val ALUMINIUM_DUST = <TConstruct:materials:40>;
 val RUTILE_NUGGET = <Mariculture:materials:37>;
 val RUTILE_INGOT = <Mariculture:materials:3>;
 val RUTILE_BLOCK = <Mariculture:metals:2>;
+val RUTILE_DUST = <aobd:dustRutile>;
 val COBALT_NUGGET = <TConstruct:materials:28>;
 val COBALT_INGOT = <TConstruct:materials:3>;
 val COBALT_BLOCK = <TConstruct:MetalBlock:0>;
+val COBALT_DUST = <TConstruct:materials:39>;
 val ARDITE_NUGGET = <TConstruct:materials:29>;
 val ARDITE_INGOT = <TConstruct:materials:4>;
 val ARDITE_BLOCK = <TConstruct:MetalBlock:1>;
+val ARDITE_DUST = <TConstruct:materials:38>;
 val BRONZE_NUGGET = <TConstruct:materials:31>;
 val BRONZE_INGOT = <TConstruct:materials:13>;
 val BRONZE_BLOCK = <TConstruct:MetalBlock:4>;
-val BRONZE_MOLTEN = <liquid:bronze.molten>;
 val BRONZE_DUST = <IC2:itemDust:0>;
 val STEEL_NUGGET = <Railcraft:nugget:1>;
 val STEEL_INGOT = <Railcraft:ingot:0>;
 val STEEL_BLOCK = <TConstruct:MetalBlock:9>;
-val STEEL_MOLTEN = <liquid:steel.molten>;
+val STEEL_DUST = <Mekanism:OtherDust:1>;
 val ELECTRUM_NUGGET = <ThermalFoundation:material:103>;
 val ELECTRUM_INGOT = <ThermalFoundation:material:71>;
 val ELECTRUM_BLOCK = <ThermalFoundation:Storage:7>;
+val ELECTRUM_BLEND = <ThermalFoundation:material:39>;
 val URANIUM_NUGGET = <aobd:nuggetUranium:0>;
 val URANIUM_INGOT = <AdvancedSolarPanel:asp_crafting_items:11>;
 val URANIUM_BLOCK = <IC2:blockMetal:3>;
+val URANIUM_DUST = <aobd:dustUranium>;
 val ENDIUM_NUGGET = <aobd:nuggetHeeEndium:0>;
 val ENDIUM_INGOT = <HardcoreEnderExpansion:endium_ingot:0>;
 val ENDIUM_BLOCK = <HardcoreEnderExpansion:endium_block:0>;
+val ENDIUM_DUST = <aobd:dustHeeEndium>;
 val PLATINUM_NUGGET = <ThermalFoundation:material:101>;
 val PLATINUM_INGOT = <ThermalFoundation:material:69>;
 val PLATINUM_BLOCK = <ThermalFoundation:Storage:5>;
+val PLATINUM_DUST = <ThermalFoundation:material:37>;
 val MITHRIL_NUGGET = <ThermalFoundation:material:102>;
 val MITHRIL_INGOT = <ThermalFoundation:material:70>;
 val MITHRIL_BLOCK = <ThermalFoundation:Storage:6>;
+val MITHRIL_DUST = <ThermalFoundation:material:38>;
 val YELLORIUM_NUGGET = <aobd:nuggetYellorium:0>;
 val YELLORIUM_INGOT = <BigReactors:BRIngot:0>;
 val YELLORIUM_BLOCK = <BigReactors:BRMetalBlock:0>;
+val YELLORIUM_DUST = <BigReactors:BRIngot:4>;
 val OSMIUM_NUGGET = <aobd:nuggetOsmium:0>;
 val OSMIUM_INGOT = <Mekanism:Ingot:1>;
 val OSMIUM_BLOCK = <Mekanism:BasicBlock:0>;
+val OSMIUM_DUST = <Mekanism:Dust:2>;
 
 
   ///////////////
  // FUNCTIONS //
 ///////////////
 
-function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, oreCluster as IIngredient, oreDust as IIngredient, oreCrushed as IIngredient, oreCrushedPurified as IIngredient, liquid as ILiquidStack, realNugget as IItemStack, realIngot as IItemStack, realBlock as IItemStack, banIngots as IItemStack[], banBlocks as IItemStack[], xp as float) {
+function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, oreCluster as IIngredient, oreDust as IIngredient, oreDustDirty as IIngredient, oreCrushed as IIngredient, oreCrushedPurified as IIngredient, liquid as ILiquidStack, realNugget as IItemStack, realIngot as IItemStack, realBlock as IItemStack, realDust as IItemStack, xp as float) {
     // basic crafting
     unifyNuggetIngotBlock(oreNugget, oreIngot, oreBlock, realNugget, realIngot, realBlock);
 
@@ -103,13 +118,9 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     mods.immersiveengineering.ArcFurnace.addRecipe(realIngot, oreCrushedPurified, null, 100, 512, []);
     mods.immersiveengineering.ArcFurnace.addRecipe(realIngot * 2, oreCluster, null, 200, 512, []);
 
+    unifyCasting(oreNugget, oreIngot, oreBlock, liquid, realNugget, realIngot, realBlock);
+
     // mariculture
-    mods.mariculture.Casting.removeNuggetRecipe(oreNugget);
-    mods.mariculture.Casting.removeIngotRecipe(oreIngot);
-    mods.mariculture.Casting.removeBlockRecipe(oreBlock);
-    mods.mariculture.Casting.addNuggetRecipe(liquid * 16, realNugget);
-    mods.mariculture.Casting.addIngotRecipe(liquid * 144, realIngot);
-    mods.mariculture.Casting.addBlockRecipe(liquid * 1296, realBlock);
     for item in oreCrushed.items {
         mods.mariculture.Crucible.addRecipe(1085, item, liquid * 144);
     }
@@ -121,22 +132,22 @@ function unifyMetal(ore as IIngredient, oreNugget as IIngredient, oreIngot as II
     }
 
     // tinker's construct
-    for item in banIngots {
-        mods.tconstruct.Casting.removeTableRecipe(item);
+    mods.tconstruct.Smeltery.addMelting(oreCrushed, liquid * 144, 200, realBlock);
+    mods.tconstruct.Smeltery.addMelting(oreCrushedPurified, liquid * 144, 200, realBlock);
+    mods.tconstruct.Smeltery.addMelting(oreCluster, liquid * 288, 200, realBlock);
+
+    // mekanism
+    mods.mekanism.Crusher.removeRecipe(oreDust, oreIngot);
+    mods.mekanism.Enrichment.removeRecipe(ore);
+    mods.mekanism.Enrichment.removeRecipe(oreDustDirty);
+    for item in oreIngot.items {
+        mods.mekanism.Crusher.addRecipe(item, realDust);
     }
-    for item in banBlocks {
-        mods.tconstruct.Casting.removeBasinRecipe(item);
+    for item in ore.items {
+        mods.mekanism.Enrichment.addRecipe(item, realDust * 2);
     }
-    mods.tconstruct.Casting.addTableRecipe(realIngot * 1, liquid * 144, <TConstruct:metalPattern>, false, 80);
-    mods.tconstruct.Casting.addBasinRecipe(realBlock * 1, liquid * 1296, null, false, 100);
-    for item in oreCrushed.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 144, 200, realBlock);
-    }
-    for item in oreCrushedPurified.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 144, 200, realBlock);
-    }
-    for item in oreCluster.items {
-        mods.tconstruct.Smeltery.addMelting(item, liquid * 288, 200, realBlock);
+    for item in oreDustDirty.items {
+        mods.mekanism.Enrichment.addRecipe(item, realDust);
     }
 }
 
@@ -201,6 +212,24 @@ function unifyNuggetIngotBlock(oreNugget as IIngredient, oreIngot as IIngredient
     ]);
 }
 
+function unifyCasting(oreNugget as IIngredient, oreIngot as IIngredient, oreBlock as IIngredient, liquid as ILiquidStack, realNugget as IItemStack, realIngot as IItemStack, realBlock as IItemStack) {
+    // mariculture
+    mods.mariculture.Casting.removeNuggetRecipe(oreNugget);
+    mods.mariculture.Casting.removeIngotRecipe(oreIngot);
+    mods.mariculture.Casting.removeBlockRecipe(oreBlock);
+    mods.mariculture.Casting.addNuggetRecipe(liquid * 16, realNugget);
+    mods.mariculture.Casting.addIngotRecipe(liquid * 144, realIngot);
+    mods.mariculture.Casting.addBlockRecipe(liquid * 1296, realBlock);
+
+    // tinker's construct
+    mods.tconstruct.Casting.removeTableRecipe(oreNugget);
+    mods.tconstruct.Casting.removeTableRecipe(oreIngot);
+    mods.tconstruct.Casting.removeBasinRecipe(oreBlock);
+    mods.tconstruct.Casting.addTableRecipe(realNugget * 1, liquid * 16, <TConstruct:metalPattern:27>, false, 50);
+    mods.tconstruct.Casting.addTableRecipe(realIngot * 1, liquid * 144, <TConstruct:metalPattern>, false, 80);
+    mods.tconstruct.Casting.addBasinRecipe(realBlock * 1, liquid * 1296, null, false, 100);
+}
+
 function purgeBerries(berries as IIngredient, nuggets as IOreDictEntry) {
     for item in berries.items {
         nuggets.remove(item);
@@ -252,7 +281,7 @@ fixRailcraftSlabsAndStairs(STEEL_BLOCK, <Railcraft:slab:43>, <Railcraft:stair:43
 ////////////
 
 // copper
-unifyMetal(<ore:oreCopper>, <ore:nuggetCopper>, <ore:ingotCopper>, <ore:blockCopper>, <ore:clusterCopper>, <ore:dustCopper>, <ore:crushedCopper>, <ore:crushedPurifiedCopper>, <liquid:copper.molten>, COPPER_NUGGET, COPPER_INGOT, COPPER_BLOCK, [<IC2:itemIngot:0>], [<IC2:blockMetal:0>], 0.7);
+unifyMetal(<ore:oreCopper>, <ore:nuggetCopper>, <ore:ingotCopper>, <ore:blockCopper>, <ore:clusterCopper>, <ore:dustCopper>, <ore:dustDirtyCopper>, <ore:crushedCopper>, <ore:crushedPurifiedCopper>, <liquid:copper.molten>, COPPER_NUGGET, COPPER_INGOT, COPPER_BLOCK, COPPER_DUST, 0.7);
 unifyDusts(<ore:crushedCopper>, <ore:crushedPurifiedCopper>, <ore:clusterCopper>, COPPER_INGOT);
 purgeBerries(<ore:oreberryCopper>, <ore:nuggetCopper>);
 // slabs
@@ -266,16 +295,16 @@ recipes.addShaped(<TConstruct:MetalBlock:3>, [
 ]);
 
 // tin
-unifyMetal(<ore:oreTin>, <ore:nuggetTin>, <ore:ingotTin>, <ore:blockTin>, <ore:clusterTin>, <ore:dustTin>, <ore:crushedTin>, <ore:crushedPurifiedTin>, <liquid:tin.molten>, TIN_NUGGET, TIN_INGOT, TIN_BLOCK, [<IC2:itemIngot:1>], [<IC2:blockMetal:1>], 0.7);
+unifyMetal(<ore:oreTin>, <ore:nuggetTin>, <ore:ingotTin>, <ore:blockTin>, <ore:clusterTin>, <ore:dustTin>, <ore:dustDirtyTin>, <ore:crushedTin>, <ore:crushedPurifiedTin>, <liquid:tin.molten>, TIN_NUGGET, TIN_INGOT, TIN_BLOCK, TIN_DUST, 0.7);
 unifyDusts(<ore:crushedTin>, <ore:crushedPurifiedTin>, <ore:clusterTin>, TIN_INGOT);
 purgeBerries(<ore:oreberryTin>, <ore:nuggetTin>);
 
 // iron
-unifyMetal(<ore:oreIron>, <ore:nuggetIron>, <ore:ingotIron>, <ore:blockIron>, <ore:clusterIron>, <ore:dustIron>, <ore:crushedIron>, <ore:crushedPurifiedIron>, <liquid:iron.molten>, IRON_NUGGET, IRON_INGOT, IRON_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreIron>, <ore:nuggetIron>, <ore:ingotIron>, <ore:blockIron>, <ore:clusterIron>, <ore:dustIron>, <ore:dustDirtyIron>, <ore:crushedIron>, <ore:crushedPurifiedIron>, <liquid:iron.molten>, IRON_NUGGET, IRON_INGOT, IRON_BLOCK, IRON_DUST, 0.7);
 purgeBerries(<ore:oreberryIron>, <ore:nuggetIron>);
 
 // silver
-unifyMetal(<ore:oreSilver>, <ore:nuggetSilver>, <ore:ingotSilver>, <ore:blockSilver>, <ore:clusterSilver>, <ore:dustSilver>, <ore:crushedSilver>, <ore:crushedPurifiedSilver>, <liquid:silver.molten>, SILVER_NUGGET, SILVER_INGOT, SILVER_BLOCK, [<IC2:itemIngot:6>], [], 1.0);
+unifyMetal(<ore:oreSilver>, <ore:nuggetSilver>, <ore:ingotSilver>, <ore:blockSilver>, <ore:clusterSilver>, <ore:dustSilver>, <ore:dustDirtySilver>, <ore:crushedSilver>, <ore:crushedPurifiedSilver>, <liquid:silver.molten>, SILVER_NUGGET, SILVER_INGOT, SILVER_BLOCK, SILVER_DUST, 1.0);
 unifyDusts(<ore:crushedSilver>, <ore:crushedPurifiedSilver>, <ore:clusterSilver>, SILVER_INGOT);
 // slabs
 recipes.remove(<ImmersiveEngineering:storageSlab:3> * 6);
@@ -288,13 +317,13 @@ recipes.addShaped(SILVER_BLOCK, [
 ]);
 
 // gold
-unifyMetal(<ore:oreGold>, <ore:nuggetGold>, <ore:ingotGold>, <ore:blockGold>, <ore:clusterGold>, <ore:dustGold>, <ore:crushedGold>, <ore:crushedPurifiedGold>, <liquid:gold.molten>, GOLD_NUGGET, GOLD_INGOT, GOLD_BLOCK, [], [], 1.0);
+unifyMetal(<ore:oreGold>, <ore:nuggetGold>, <ore:ingotGold>, <ore:blockGold>, <ore:clusterGold>, <ore:dustGold>, <ore:dustDirtyGold>, <ore:crushedGold>, <ore:crushedPurifiedGold>, <liquid:gold.molten>, GOLD_NUGGET, GOLD_INGOT, GOLD_BLOCK, GOLD_DUST, 1.0);
 // hack: apparently gold oreberries aren't actually oreberries?
 <ore:oreberryGold>.add(<TConstruct:oreBerries:1>);
 purgeBerries(<ore:oreberryGold>, <ore:nuggetGold>);
 
 // lead
-unifyMetal(<ore:oreLead>, <ore:nuggetLead>, <ore:ingotLead>, <ore:blockLead>, <ore:clusterLead>, <ore:dustLead>, <ore:crushedLead>, <ore:crushedPurifiedLead>, <liquid:lead.molten>, LEAD_NUGGET, LEAD_INGOT, LEAD_BLOCK, [<IC2:itemIngot:5>], [<IC2:blockMetal:4>], 0.7);
+unifyMetal(<ore:oreLead>, <ore:nuggetLead>, <ore:ingotLead>, <ore:blockLead>, <ore:clusterLead>, <ore:dustLead>, <ore:dustDirtyLead>, <ore:crushedLead>, <ore:crushedPurifiedLead>, <liquid:lead.molten>, LEAD_NUGGET, LEAD_INGOT, LEAD_BLOCK, LEAD_DUST, 0.7);
 unifyDusts(<ore:crushedLead>, <ore:crushedPurifiedLead>, <ore:clusterLead>, LEAD_INGOT);
 // slabs
 recipes.addShaped(<ImmersiveEngineering:storage:2>, [
@@ -307,7 +336,7 @@ recipes.addShaped(LEAD_BLOCK, [
 ]);
 
 // nickel (ferrous metal)
-unifyMetal(<ore:oreNickel>, <ore:nuggetNickel>, <ore:ingotNickel>, <ore:blockNickel>, <ore:clusterNickel>, <ore:dustNickel>, <ore:crushedNickel>, <ore:crushedPurifiedNickel>, <liquid:nickel.molten>, NICKEL_NUGGET, NICKEL_INGOT, NICKEL_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreNickel>, <ore:nuggetNickel>, <ore:ingotNickel>, <ore:blockNickel>, <ore:clusterNickel>, <ore:dustNickel>, <ore:dustDirtyNickel>, <ore:crushedNickel>, <ore:crushedPurifiedNickel>, <liquid:nickel.molten>, NICKEL_NUGGET, NICKEL_INGOT, NICKEL_BLOCK, NICKEL_DUST, 0.7);
 // slabs
 recipes.remove(<ImmersiveEngineering:storageSlab:4> * 6);
 recipes.addShaped(<ImmersiveEngineering:storageSlab:4>* 6, [
@@ -326,10 +355,16 @@ for item in <ore:blockNickel>.items {
 // aluminium
 // make sure things called "aluminum" also count as "aluminium"
 <ore:oreAluminium>.addAll(<ore:oreAluminum>);
+<ore:oreAluminum>.mirror(<ore:oreAluminium>);
+<ore:dustAluminium>.addAll(<ore:dustAluminum>);
+<ore:dustAluminum>.mirror(<ore:dustAluminium>);
 <ore:nuggetAluminium>.addAll(<ore:nuggetAluminum>);
+<ore:nuggetAluminum>.mirror(<ore:nuggetAluminium>);
 <ore:ingotAluminium>.addAll(<ore:ingotAluminum>);
+<ore:ingotAluminum>.mirror(<ore:ingotAluminium>);
 <ore:blockAluminium>.addAll(<ore:blockAluminum>);
-unifyMetal(<ore:oreAluminium>, <ore:nuggetAluminium>, <ore:ingotAluminium>, <ore:blockAluminium>, <ore:clusterAluminium>, <ore:dustAluminium>, <ore:crushedAluminium>, <ore:crushedPurifiedAluminium>, <liquid:aluminum.molten>, ALUMINIUM_NUGGET, ALUMINIUM_INGOT, ALUMINIUM_BLOCK, [], [], 0.7);
+<ore:blockAluminum>.mirror(<ore:blockAluminium>);
+unifyMetal(<ore:oreAluminium>, <ore:nuggetAluminium>, <ore:ingotAluminium>, <ore:blockAluminium>, <ore:clusterAluminium>, <ore:dustAluminium>, <ore:dustDirtyAluminium>, <ore:crushedAluminium>, <ore:crushedPurifiedAluminium>, <liquid:aluminum.molten>, ALUMINIUM_NUGGET, ALUMINIUM_INGOT, ALUMINIUM_BLOCK, ALUMINIUM_DUST, 0.7);
 // this removal gets stuck
 //for item in <ore:oreAluminium>.items {
 //    mods.thermalexpansion.Furnace.removeRecipe(item);
@@ -348,31 +383,31 @@ recipes.addShaped(ALUMINIUM_BLOCK, [
 ]);
 
 // rutile (impure titantium)
-unifyMetal(<ore:oreRutile>, <ore:nuggetRutile>, <ore:ingotRutile>, <ore:blockRutile>, <ore:clusterRutile>, <ore:dustRutile>, <ore:crushedRutile>, <ore:crushedPurifiedRutile>, <liquid:rutile.molten>, RUTILE_NUGGET, RUTILE_INGOT, RUTILE_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreRutile>, <ore:nuggetRutile>, <ore:ingotRutile>, <ore:blockRutile>, <ore:clusterRutile>, <ore:dustRutile>, <ore:dustDirtyRutile>, <ore:crushedRutile>, <ore:crushedPurifiedRutile>, <liquid:rutile.molten>, RUTILE_NUGGET, RUTILE_INGOT, RUTILE_BLOCK, RUTILE_DUST, 0.7);
 
 // cobalt
-unifyMetal(<ore:oreCobalt>, <ore:nuggetCobalt>, <ore:ingotCobalt>, <ore:blockCobalt>, <ore:clusterCobalt>, <ore:dustCobalt>, <ore:crushedCobalt>, <ore:crushedPurifiedCobalt>, <liquid:cobalt.molten>, COBALT_NUGGET, COBALT_INGOT, COBALT_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreCobalt>, <ore:nuggetCobalt>, <ore:ingotCobalt>, <ore:blockCobalt>, <ore:clusterCobalt>, <ore:dustCobalt>, <ore:dustDirtyCobalt>, <ore:crushedCobalt>, <ore:crushedPurifiedCobalt>, <liquid:cobalt.molten>, COBALT_NUGGET, COBALT_INGOT, COBALT_BLOCK, COBALT_DUST, 0.7);
 
 // ardite
-unifyMetal(<ore:oreArdite>, <ore:nuggetArdite>, <ore:ingotArdite>, <ore:blockArdite>, <ore:clusterArdite>, <ore:dustArdite>, <ore:crushedArdite>, <ore:crushedPurifiedArdite>, <liquid:ardite.molten>, ARDITE_NUGGET, ARDITE_INGOT, ARDITE_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreArdite>, <ore:nuggetArdite>, <ore:ingotArdite>, <ore:blockArdite>, <ore:clusterArdite>, <ore:dustArdite>, <ore:dustDirtyArdite>, <ore:crushedArdite>, <ore:crushedPurifiedArdite>, <liquid:ardite.molten>, ARDITE_NUGGET, ARDITE_INGOT, ARDITE_BLOCK, ARDITE_DUST, 0.7);
 
 // uranium
-unifyMetal(<ore:oreUranium>, <ore:nuggetUranium>, <ore:ingotUranium>, <ore:blockUranium>, <ore:clusterUranium>, <ore:dustUranium>, <ore:crushedUranium>, <ore:crushedPurifiedUranium>, <liquid:uranium>, URANIUM_NUGGET, URANIUM_INGOT, URANIUM_BLOCK, [], [], 0.7);
+unifyNuggetIngotBlock(<ore:nuggetUranium>, <ore:ingotUranium>, <ore:blockUranium>, URANIUM_NUGGET, URANIUM_INGOT, URANIUM_BLOCK);
 
 // endium
-unifyMetal(<ore:oreHeeEndium>, <ore:nuggetHeeEndium>, <ore:ingotHeeEndium>, <ore:blockHeeEndium>, <ore:clusterHeeEndium>, <ore:dustHeeEndium>, <ore:crushedHeeEndium>, <ore:crushedPurifiedHeeEndium>, <liquid:heeendium>, ENDIUM_NUGGET, ENDIUM_INGOT, ENDIUM_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreHeeEndium>, <ore:nuggetHeeEndium>, <ore:ingotHeeEndium>, <ore:blockHeeEndium>, <ore:clusterHeeEndium>, <ore:dustHeeEndium>, <ore:dustDirtyHeeEndium>, <ore:crushedHeeEndium>, <ore:crushedPurifiedHeeEndium>, <liquid:heeendium>, ENDIUM_NUGGET, ENDIUM_INGOT, ENDIUM_BLOCK, ENDIUM_DUST, 0.7);
 
 // platinum
-unifyMetal(<ore:orePlatinum>, <ore:nuggetPlatinum>, <ore:ingotPlatinum>, <ore:blockPlatinum>, <ore:clusterPlatinum>, <ore:dustPlatinum>, <ore:crushedPlatinum>, <ore:crushedPurifiedPlatinum>, <liquid:platinum.molten>, PLATINUM_NUGGET, PLATINUM_INGOT, PLATINUM_BLOCK, [], [], 0.7);
+unifyMetal(<ore:orePlatinum>, <ore:nuggetPlatinum>, <ore:ingotPlatinum>, <ore:blockPlatinum>, <ore:clusterPlatinum>, <ore:dustPlatinum>, <ore:dustDirtyPlatinum>, <ore:crushedPlatinum>, <ore:crushedPurifiedPlatinum>, <liquid:platinum.molten>, PLATINUM_NUGGET, PLATINUM_INGOT, PLATINUM_BLOCK, PLATINUM_DUST, 0.7);
 
 // mithril
-unifyMetal(<ore:oreMithril>, <ore:nuggetMithril>, <ore:ingotMithril>, <ore:blockMithril>, <ore:clusterMithril>, <ore:dustMithril>, <ore:crushedMithril>, <ore:crushedPurifiedMithril>, <liquid:mithril.molten>, MITHRIL_NUGGET, MITHRIL_INGOT, MITHRIL_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreMithril>, <ore:nuggetMithril>, <ore:ingotMithril>, <ore:blockMithril>, <ore:clusterMithril>, <ore:dustMithril>, <ore:dustDirtyMithril>, <ore:crushedMithril>, <ore:crushedPurifiedMithril>, <liquid:mithril.molten>, MITHRIL_NUGGET, MITHRIL_INGOT, MITHRIL_BLOCK, MITHRIL_DUST, 0.7);
 
 // yellorium
-unifyMetal(<ore:oreYellorium>, <ore:nuggetYellorium>, <ore:ingotYellorium>, <ore:blockYellorium>, <ore:clusterYellorium>, <ore:dustYellorium>, <ore:crushedYellorium>, <ore:crushedPurifiedYellorium>, <liquid:yellorium>, YELLORIUM_NUGGET, YELLORIUM_INGOT, YELLORIUM_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreYellorium>, <ore:nuggetYellorium>, <ore:ingotYellorium>, <ore:blockYellorium>, <ore:clusterYellorium>, <ore:dustYellorium>, <ore:dustDirtyYellorium>, <ore:crushedYellorium>, <ore:crushedPurifiedYellorium>, <liquid:yellorium>, YELLORIUM_NUGGET, YELLORIUM_INGOT, YELLORIUM_BLOCK, YELLORIUM_DUST, 0.7);
 
 // osmium
-unifyMetal(<ore:oreOsmium>, <ore:nuggetOsmium>, <ore:ingotOsmium>, <ore:blockOsmium>, <ore:clusterOsmium>, <ore:dustOsmium>, <ore:crushedOsmium>, <ore:crushedPurifiedOsmium>, <liquid:osmium>, OSMIUM_NUGGET, OSMIUM_INGOT, OSMIUM_BLOCK, [], [], 0.7);
+unifyMetal(<ore:oreOsmium>, <ore:nuggetOsmium>, <ore:ingotOsmium>, <ore:blockOsmium>, <ore:clusterOsmium>, <ore:dustOsmium>, <ore:dustDirtyOsmium>, <ore:crushedOsmium>, <ore:crushedPurifiedOsmium>, <liquid:osmium>, OSMIUM_NUGGET, OSMIUM_INGOT, OSMIUM_BLOCK, OSMIUM_DUST, 0.7);
 
 
   ////////////
@@ -384,21 +419,9 @@ unifyNuggetIngotBlock(<ore:nuggetBronze>, <ore:ingotBronze>, <ore:blockBronze>, 
 
 // smelting
 furnace.remove(<ore:ingotBronze>, <ore:dustBronze>);
-furnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>, 0.7);
+furnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>);
 
-// mariculture
-mods.mariculture.Casting.removeNuggetRecipe(<ore:nuggetBronze>);
-mods.mariculture.Casting.removeIngotRecipe(<ore:ingotBronze>);
-mods.mariculture.Casting.removeBlockRecipe(<ore:blockBronze>);
-mods.mariculture.Casting.addNuggetRecipe(BRONZE_MOLTEN * 16, BRONZE_NUGGET);
-mods.mariculture.Casting.addIngotRecipe(BRONZE_MOLTEN * 144, BRONZE_INGOT);
-mods.mariculture.Casting.addBlockRecipe(BRONZE_MOLTEN * 1296, BRONZE_BLOCK);
-
-// tinker's construct
-mods.tconstruct.Casting.removeTableRecipe(<IC2:itemIngot:2>);
-mods.tconstruct.Casting.removeBasinRecipe(<IC2:blockMetal:2>);
-mods.tconstruct.Casting.addTableRecipe(BRONZE_INGOT * 1, BRONZE_MOLTEN * 144, <TConstruct:metalPattern>, false, 80);
-mods.tconstruct.Casting.addBasinRecipe(BRONZE_BLOCK * 1, BRONZE_MOLTEN * 1296, null, false, 100);
+unifyCasting(<ore:nuggetBronze>, <ore:ingotBronze>, <ore:blockBronze>, <liquid:bronze.molten>, BRONZE_NUGGET, BRONZE_INGOT, BRONZE_BLOCK);
 
 // thermal expansion
 recipes.remove(<ThermalFoundation:material:41>); // bronze blend
@@ -421,6 +444,7 @@ mods.mekanism.Infuser.removeRecipe(<ore:ingotBronze>);
 mods.immersiveengineering.ArcFurnace.removeRecipe(<ThermalFoundation:material:73>);
 mods.immersiveengineering.ArcFurnace.addRecipe(BRONZE_INGOT, <ore:dustBronze>, null, 100, 512, []);
 
+
   ///////////
  // STEEL //
 ///////////
@@ -432,6 +456,8 @@ unifyNuggetIngotBlock(<ore:nuggetSteel>, <ore:ingotSteel>, <ore:blockSteel>, STE
 furnace.remove(<ore:ingotSteel>, <ore:dustSteel>);
 furnace.addRecipe(STEEL_INGOT, <ore:dustSteel>);
 
+unifyCasting(<ore:nuggetSteel>, <ore:ingotSteel>, <ore:blockSteel>, <liquid:steel.molten>, STEEL_NUGGET, STEEL_INGOT, STEEL_BLOCK);
+
 // slabs
 recipes.addShaped(<ImmersiveEngineering:storage:7>, [
     [<ImmersiveEngineering:storageSlab:7>],
@@ -442,14 +468,6 @@ recipes.addShaped(STEEL_BLOCK, [
     [<Railcraft:slab:43>]
 ]);
 
-// mariculture
-mods.mariculture.Casting.removeNuggetRecipe(<ore:nuggetSteel>);
-mods.mariculture.Casting.removeIngotRecipe(<ore:ingotSteel>);
-mods.mariculture.Casting.removeBlockRecipe(<ore:blockSteel>);
-mods.mariculture.Casting.addNuggetRecipe(STEEL_MOLTEN * 16, STEEL_NUGGET);
-mods.mariculture.Casting.addIngotRecipe(STEEL_MOLTEN * 144, STEEL_INGOT);
-mods.mariculture.Casting.addBlockRecipe(STEEL_MOLTEN * 1296, STEEL_BLOCK);
-
 // mekanism
 mods.mekanism.Infuser.removeRecipe(<Mekanism:EnrichedIron:0>);
 for item in <ore:dustSteel>.items {
@@ -459,12 +477,6 @@ for item in <ore:dustSteel>.items {
 // railcraft
 mods.railcraft.BlastFurnace.removeRecipe(<Railcraft:cube:2>);
 mods.railcraft.BlastFurnace.addRecipe(<minecraft:iron_block:0>, false, false, 11520, STEEL_BLOCK);
-
-// tinker's construct
-mods.tconstruct.Casting.removeTableRecipe(<IC2:itemIngot:3>);
-mods.tconstruct.Casting.removeBasinRecipe(<IC2:blockMetal:5>);
-mods.tconstruct.Casting.addTableRecipe(STEEL_INGOT * 1, STEEL_MOLTEN * 144, <TConstruct:metalPattern>, false, 80);
-mods.tconstruct.Casting.addBasinRecipe(STEEL_BLOCK * 1, STEEL_MOLTEN * 1296, null, false, 100);
 
 // thermal expansion
 for item in <ore:dustSteel>.items {
@@ -1109,11 +1121,19 @@ NEI.hide(<ThermalFoundation:material:73>);
 NEI.hide(<ImmersiveEngineering:metal:8>);
 NEI.hide(<ImmersiveEngineering:metal:9>);
 NEI.hide(<ImmersiveEngineering:metal:10>);
+NEI.hide(<ImmersiveEngineering:metal:11>);
 NEI.hide(<ImmersiveEngineering:metal:12>);
 NEI.hide(<ImmersiveEngineering:metal:13>);
 NEI.hide(<ImmersiveEngineering:metal:14>);
 NEI.hide(<ImmersiveEngineering:metal:16>);
 NEI.hide(<ImmersiveEngineering:metal:18>);
+NEI.hide(<Mekanism:Dust:0>);
+NEI.hide(<Mekanism:Dust:1>);
+NEI.hide(<Mekanism:Dust:3>);
+NEI.hide(<Mekanism:Dust:4>);
+NEI.hide(<Mekanism:Dust:5>);
+NEI.hide(<Mekanism:Dust:6>);
+NEI.hide(<Mekanism:OtherDust:2>);
 
 // uncraftable/obsolete/unnamed items
 NEI.hide(<appliedenergistics2:tile.BlockCableBus:0>);
