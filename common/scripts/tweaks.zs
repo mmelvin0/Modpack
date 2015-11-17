@@ -654,6 +654,24 @@ mods.immersiveengineering.Crusher.removeRecipe(<Mekanism:Dust:2>);
 mods.immersiveengineering.Crusher.addRecipe(<Mekanism:Dust:2>, <ore:ingotOsmium>, 3600, null, 0);
 mods.immersiveengineering.Crusher.addRecipe(<Mekanism:Dust:2> * 2, <ore:oreOsmium>, 6000, null, 0);
 
+// arc furnace - misc ores
+
+// uranium
+mods.immersiveengineering.ArcFurnace.removeRecipe(<AdvancedSolarPanel:asp_crafting_items:11> * 2);
+
+// desh
+mods.immersiveengineering.ArcFurnace.removeRecipe(<GalacticraftMars:item.null:2> * 2);
+mods.immersiveengineering.ArcFurnace.addRecipe(<GalacticraftMars:item.null:2> * 2, <ore:oreDesh>, <ThermalExpansion:material:514>, 200, 512, []);
+
+// arc furnace - alloys
+
+// electrum
+mods.immersiveengineering.ArcFurnace.removeRecipe(<ImmersiveEngineering:metal:6>);
+mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:ingotGold>, null, 100, 512, [<ore:dustSilver>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:dustGold>, null, 100, 512, [<ore:dustSilver>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:ingotSilver>, null, 100, 512, [<ore:dustGold>]);
+mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:dustSilver>, null, 100, 512, [<ore:dustGold>]);
+
 
   ///////////
  // GEARS //
@@ -1073,6 +1091,7 @@ NEI.hide(<GalacticraftCore:tile.gcBlockCore:7>);
 NEI.hide(<ImmersiveEngineering:ore:1>);
 
 // extra aluminum nuggets
+NEI.hide(<ImmersiveEngineering:metal:23>);
 NEI.hide(<Mariculture:materials:34>);
 
 // extra aluminum ingots
@@ -1312,6 +1331,10 @@ NEI.hide(<IC2:blockDynamiteRemote:0>);
 NEI.hide(<IC2:blockGenerator:4>);
 NEI.hide(<IC2:blockLuminator:0>);
 NEI.hide(<IC2:blockWall:*>);
+NEI.hide(<ImmersiveEngineering:hemp>);
+NEI.hide(<ImmersiveEngineering:material:13>);
+NEI.hide(<ImmersiveEngineering:material:6>);
+NEI.hide(<ImmersiveEngineering:stoneDecoration:3>);
 NEI.hide(<malisisdoors:curtain_black>);
 NEI.hide(<malisisdoors:curtain_blue>);
 NEI.hide(<malisisdoors:curtain_brown>);
