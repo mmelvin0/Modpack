@@ -576,6 +576,27 @@ furnace.remove(<ThermalExpansion:Rockwool:8>, <ThermalExpansion:material:514>);
 furnace.addRecipe(<ThermalExpansion:Rockwool:8>, <ore:itemSlag>);
 mods.thermalexpansion.Furnace.addRecipe(1600, <ImmersiveEngineering:material:13>, <ThermalExpansion:Rockwool:8>);
 
+// coal dust instead of pulverized coal
+mods.thermalexpansion.Pulverizer.removeRecipe(<ore:fuelCoal>);
+for item in <ore:fuelCoal>.items {
+    mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <IC2:itemDust:2>, <ThermalFoundation:material:16>, 15);
+}
+mods.thermalexpansion.Pulverizer.removeRecipe(<ore:oreCoal>);
+for item in <ore:oreCoal>.items {
+    mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <minecraft:coal> * 3, <IC2:itemDust:2>, 25);
+}
+// charcoal dust instead of pulverized charcoal
+mods.thermalexpansion.Pulverizer.removeRecipe(<ore:fuelCharcoal>);
+mods.mekanism.Crusher.removeRecipe(<ore:dustCharcoal>);
+for item in <ore:fuelCharcoal>.items {
+    mods.mekanism.Crusher.addRecipe(item, <Railcraft:dust:3>);
+    mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <Railcraft:dust:3>);
+}
+mods.appeng.Grinder.removeRecipe(<ore:dustCharcoal>);
+for item in <ore:fuelCharcoal>.items {
+    mods.appeng.Grinder.addRecipe(item, <Railcraft:dust:3>, 8);
+}
+
 
   ///////////////////////////
  // IMMERSIVE ENGINEERING //
