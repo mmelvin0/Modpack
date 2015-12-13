@@ -672,6 +672,13 @@ mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> *
 mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:ingotSilver>, null, 100, 512, [<ore:dustGold>]);
 mods.immersiveengineering.ArcFurnace.addRecipe(<ThermalFoundation:material:71> * 2, <ore:dustSilver>, null, 100, 512, [<ore:dustGold>]);
 
+// coke dust
+mods.ic2.Macerator.addRecipe(<ImmersiveEngineering:metal:17>, <ore:fuelCoke>);
+for item in <ore:fuelCoke>.items {
+    mods.mekanism.Crusher.addRecipe(item, <ImmersiveEngineering:metal:17>);
+    mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <ImmersiveEngineering:metal:17>);
+}
+
 
   ///////////
  // GEARS //

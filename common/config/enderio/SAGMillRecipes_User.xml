@@ -99,6 +99,14 @@
 <SAGMillRecipes>
 
   <recipeGroup name="Custom">
+    <recipe name="Coke Dust" energyCost="2400">
+      <input>
+        <itemStack oreDictionary="fuelCoke" />
+      </input>
+      <output>
+        <itemStack modID="ImmersiveEngineering" itemName="metal" itemMeta="17" number="1" />
+      </output>
+    </recipe>
     <recipe name="Diamond Dust" energyCost="2400">
       <input>
         <itemStack oreDictionary="gemDiamond" />
