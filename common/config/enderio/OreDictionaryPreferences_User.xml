@@ -80,7 +80,7 @@ Entries in this file take precedence over the values in the core file
     <itemStack modID="TConstruct" itemName="materials" itemMeta="11" />
   </preference>
 
-  <preference oreDictionary="ingotAluminuim">
+  <preference oreDictionary="ingotAluminium">
     <itemStack modID="TConstruct" itemName="materials" itemMeta="11" />
   </preference>
 
