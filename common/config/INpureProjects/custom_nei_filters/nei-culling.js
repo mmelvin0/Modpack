@@ -10,6 +10,5 @@ NEI.override('Mekanism:GasTank', [100]);
 NEI.override('ThermalExpansion:florb', [0, 1]);
 
 // bibliocraft
-NEI.override('BiblioCraft:*', [0]);
 NEI.hide('BiblioWoodsBoP:*');
 NEI.hide('BiblioWoodsForestry:*');
