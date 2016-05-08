@@ -1323,6 +1323,38 @@ NEI.hide(<BiblioCraft:item.seatBack5:3>);
 NEI.hide(<BiblioCraft:item.seatBack5:4>);
 NEI.hide(<BiblioCraft:item.seatBack5:5>);
 
+// storage drawers stuff
+NEI.hide(<StorageDrawers:trim:1>);
+NEI.hide(<StorageDrawers:trim:2>);
+NEI.hide(<StorageDrawers:trim:3>);
+NEI.hide(<StorageDrawers:trim:4>);
+NEI.hide(<StorageDrawers:trim:5>);
+NEI.hide(<StorageDrawers:fullDrawers4:1>);
+NEI.hide(<StorageDrawers:fullDrawers4:2>);
+NEI.hide(<StorageDrawers:fullDrawers4:3>);
+NEI.hide(<StorageDrawers:fullDrawers4:4>);
+NEI.hide(<StorageDrawers:fullDrawers4:5>);
+NEI.hide(<StorageDrawers:fullDrawers1:1>);
+NEI.hide(<StorageDrawers:fullDrawers1:2>);
+NEI.hide(<StorageDrawers:fullDrawers1:3>);
+NEI.hide(<StorageDrawers:fullDrawers1:4>);
+NEI.hide(<StorageDrawers:fullDrawers1:5>);
+NEI.hide(<StorageDrawers:fullDrawers2:1>);
+NEI.hide(<StorageDrawers:fullDrawers2:2>);
+NEI.hide(<StorageDrawers:fullDrawers2:3>);
+NEI.hide(<StorageDrawers:fullDrawers2:4>);
+NEI.hide(<StorageDrawers:fullDrawers2:5>);
+NEI.hide(<StorageDrawers:halfDrawers4:1>);
+NEI.hide(<StorageDrawers:halfDrawers4:2>);
+NEI.hide(<StorageDrawers:halfDrawers4:3>);
+NEI.hide(<StorageDrawers:halfDrawers4:4>);
+NEI.hide(<StorageDrawers:halfDrawers4:5>);
+NEI.hide(<StorageDrawers:halfDrawers2:1>);
+NEI.hide(<StorageDrawers:halfDrawers2:2>);
+NEI.hide(<StorageDrawers:halfDrawers2:3>);
+NEI.hide(<StorageDrawers:halfDrawers2:4>);
+NEI.hide(<StorageDrawers:halfDrawers2:5>);
+
 // uncraftable/obsolete/unnamed items
 NEI.hide(<appliedenergistics2:tile.BlockCableBus:0>);
 NEI.hide(<appliedenergistics2:tile.BlockMatrixFrame:0>);
