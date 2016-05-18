@@ -765,6 +765,8 @@ mods.tconstruct.Smeltery.removeMelting(<ore:gearIron>);
 mods.tconstruct.Casting.removeTableRecipe(<ore:gearIron>);
 mods.tconstruct.Smeltery.addMelting(<ore:gearIron>, <liquid:iron.molten> * 576, 700, IRON_BLOCK);
 mods.tconstruct.Casting.addTableRecipe(<BuildCraft|Core:ironGearItem>, <liquid:iron.molten> * 576, <TConstruct:gearCast>, false, 50);
+mods.immersiveengineering.MetalPress.removeRecipe(<ThermalFoundation:material:12>);
+mods.immersiveengineering.MetalPress.addRecipe(<BuildCraft|Core:ironGearItem>, <ore:ingotIron>, <ImmersiveEngineering:mold:1>, 2400, 4);
 
 // gold
 recipes.remove(<ThermalFoundation:material:13>);
@@ -773,6 +775,8 @@ mods.tconstruct.Smeltery.removeMelting(<ore:gearGold>);
 mods.tconstruct.Casting.removeTableRecipe(<ore:gearGold>);
 mods.tconstruct.Smeltery.addMelting(<ore:gearGold>, <liquid:gold.molten> * 576, 500, GOLD_BLOCK);
 mods.tconstruct.Casting.addTableRecipe(<BuildCraft|Core:goldGearItem>, <liquid:gold.molten> * 576, <TConstruct:gearCast>, false, 50);
+mods.immersiveengineering.MetalPress.removeRecipe(<ThermalFoundation:material:13>);
+mods.immersiveengineering.MetalPress.addRecipe(<BuildCraft|Core:goldGearItem>, <ore:ingotGold>, <ImmersiveEngineering:mold:1>, 2400, 4);
 
 // compressed iron
 recipes.removeShaped(<PneumaticCraft:compressedIronGear>, [
@@ -780,6 +784,7 @@ recipes.removeShaped(<PneumaticCraft:compressedIronGear>, [
     [<ore:ingotIronCompressed>, <ore:ingotIron>, <ore:ingotIronCompressed>],
     [null, <ore:ingotIronCompressed>, null]
 ]);
+mods.immersiveengineering.MetalPress.addRecipe(<PneumaticCraft:compressedIronGear>, <ore:ingotIronCompressed>, <ImmersiveEngineering:mold:1>, 2400, 4);
 
 // silver
 recipes.remove(<ThermalFoundation:material:130>);
