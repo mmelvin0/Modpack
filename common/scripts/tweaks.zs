@@ -700,6 +700,13 @@ for item in <ore:fuelCoke>.items {
     mods.thermalexpansion.Pulverizer.addRecipe(2400, item, <ImmersiveEngineering:metal:17>);
 }
 
+// treated wood carpenter recipe
+mods.forestry.Carpenter.addRecipe(<ImmersiveEngineering:treatedWood:0> * 8, [
+    [<ore:plankWood>, <ore:plankWood>, <ore:plankWood>],
+    [<ore:plankWood>, null, <ore:plankWood>],
+    [<ore:plankWood>, <ore:plankWood>, <ore:plankWood>]
+], <liquid:creosote> * 750, 40);
+
 
   ///////////////////////////
  // Advanced Solar Panels //
