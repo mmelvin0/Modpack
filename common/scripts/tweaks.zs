@@ -924,6 +924,33 @@ recipes.addShaped(<GalacticraftCore:item.canister:1> * 2, [
 ]);
 
 
+  ////////////////////////
+ // TINKERS STEELWORKS //
+////////////////////////
+
+// fix limestone slab recipes
+recipes.remove(<TSteelworks:LimestoneSlab:3> * 6);
+recipes.addShaped(<TSteelworks:LimestoneSlab:3> * 6, [
+    [<TSteelworks:Limestone:3>, <TSteelworks:Limestone:3>, <TSteelworks:Limestone:3>]
+]);
+recipes.remove(<TSteelworks:LimestoneSlab:4> * 6);
+recipes.addShaped(<TSteelworks:LimestoneSlab:4> * 6, [
+    [<TSteelworks:Limestone:4>, <TSteelworks:Limestone:4>, <TSteelworks:Limestone:4>]
+]);
+recipes.remove(<TSteelworks:LimestoneSlab:5> * 6);
+recipes.addShaped(<TSteelworks:LimestoneSlab:5> * 6, [
+    [<TSteelworks:Limestone:5>, <TSteelworks:Limestone:5>, <TSteelworks:Limestone:5>]
+]);
+recipes.remove(<TSteelworks:LimestoneSlab:6> * 6);
+recipes.addShaped(<TSteelworks:LimestoneSlab:6> * 6, [
+    [<TSteelworks:Limestone:6>, <TSteelworks:Limestone:6>, <TSteelworks:Limestone:6>]
+]);
+recipes.remove(<TSteelworks:LimestoneSlab:7> * 6);
+recipes.addShaped(<TSteelworks:LimestoneSlab:7> * 6, [
+    [<TSteelworks:Limestone:7>, <TSteelworks:Limestone:7>, <TSteelworks:Limestone:7>]
+]);
+
+
   //////////
  // LOOT //
 //////////
@@ -1003,14 +1030,49 @@ addSaplingLoot(<BiomesOPlenty:colorizedSaplings:6>);
  // L18N //
 //////////
 
+game.setLocalization("Automation Upgrade.name", "Automation Upgrade");
+game.setLocalization("block.limestone.slab.cracked.name", "Cracked Limestone Bricks Slab");
+game.setLocalization("extracells.gas.IO", "ME Gas Import/Export Bus");
+game.setLocalization("highoven.furnace.tooltip", "High Oven structure block");
+<TSteelworks:HighOven:3>.addTooltip("(Safe for decoration)");
+game.setLocalization("item.railcraft.part.plate.lead.name", "Lead Plate");
+game.setLocalization("item.upgrade_speed.name.desc", "Increases the rate at which the Auto Chisel works");
+game.setLocalization("item.upgrade_automation.name.desc", "Allows things to push in and out of the Auto Chisel");
+game.setLocalization("item.upgrade_stack.name.desc", "Allows the Auto Chisel to manufacture stacks at a time");
+game.setLocalization("item.upgrade_reversion.name.desc", "Reverts the Auto Chisel base slot to its original form");
+game.setLocalization("Lapotron Loader Upgrade.name", "Lapotron Loader Upgrade");
+game.setLocalization("Reversion Upgrade.name", "Reversion Upgrade");
+game.setLocalization("Speed Upgrade.name", "Speed Upgrade");
+game.setLocalization("Stack Upgrade.name", "Stack Upgrade");
 game.setLocalization("tile.archimedes.balloon.lightBlue.name", "Light Blue Air Balloon");
 game.setLocalization("tile.chisel.aluminum_stairs.0.name", "Aluminum Stairs");
 game.setLocalization("tile.chisel.aluminum_stairs.1.name", "Aluminum Stairs");
 game.setLocalization("tile.chisel.aluminum_stairs.2.name", "Aluminum Stairs");
 game.setLocalization("tile.chisel.sandstone2.name", "Sandstone");
+game.setLocalization("tile.dirt.13.desc", "More Dirt");
+game.setLocalization("tile.dirt.14.desc", "Even More Dirt");
+game.setLocalization("tile.dirt.15.desc", "Smooth Dirt");
+game.setLocalization("tile.imperial.0.desc", "Camouflaged");
+game.setLocalization("tile.imperial.1.desc", "Camouflaged (Secluded)");
+game.setLocalization("tile.imperial.2.desc", "Bolted Plate");
+game.setLocalization("tile.imperial.3.desc", "White Caution Tape");
+game.setLocalization("tile.imperial.4.desc", "Orange Caution Tape");
+game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
+game.setLocalization("tile.rebel.0.desc", "Camouflaged");
+game.setLocalization("tile.rebel.1.desc", "Camouflaged (Secluded)");
+game.setLocalization("tile.rebel.2.desc", "Bolted Plate");
+game.setLocalization("tile.rebel.3.desc", "White Caution Tape");
+game.setLocalization("tile.rebel.4.desc", "Red Caution Tape");
 game.setLocalization("tile.sandstone.16.desc", "Sandstone");
 game.setLocalization("tile.sandstone.17.desc", "Sandstone");
-game.setLocalization("tile.railcraft.post.metal.unpainted.platform.name", "Metal Platform");
+game.setLocalization("tile.valentines.2.desc", "Cobblestone Heart");
+game.setLocalization("tile.valentines.3.desc", "Pink Cobblestone Heart");
+game.setLocalization("tile.valentines.4.desc", "Cobblestone Pink Heart");
+game.setLocalization("tile.valentines.5.desc", "Smooth");
+game.setLocalization("tile.valentines.6.desc", "Cobblestone");
+game.setLocalization("tile.valentines.7.desc", "Dimples");
+game.setLocalization("tile.valentines.8.desc", "Hey, Listen!");
+game.setLocalization("tile.valentines.9.desc", "Shiny");
 
 
   /////////
@@ -1511,6 +1573,7 @@ NEI.hide(<chisel:marble_slab_top:7>);
 NEI.hide(<chisel:marble_slab_top:8>);
 NEI.hide(<chisel:marble_slab_top:9>);
 NEI.hide(<EnderIO:blockLightNode:0>);
+NEI.hide(<EnderIO:blockInhibitorObelisk:0>);
 NEI.hide(<EnderZoo:enderZooIcon:0>);
 NEI.hide(<extracells:ecbaseblock:1>);
 NEI.hide(<extracells:fluid.item:0>);
@@ -1559,8 +1622,12 @@ NEI.hide(<IC2:blockDoorAlloy:0>);
 NEI.hide(<IC2:blockDynamite:0>);
 NEI.hide(<IC2:blockDynamiteRemote:0>);
 NEI.hide(<IC2:blockGenerator:4>);
+NEI.hide(<IC2:blockHarz:0>);
 NEI.hide(<IC2:blockLuminator:0>);
 NEI.hide(<IC2:blockWall:*>);
+NEI.hide(<IC2:plasmaLauncher:1>.withTag({charge: 40000.0}));
+NEI.hide(<IC2:plasmaLauncher:26>);
+NEI.hide(<IC2NuclearControl:MekRFenergyCard:0>);
 NEI.hide(<ImmersiveEngineering:hemp>);
 NEI.hide(<ImmersiveEngineering:material:13>);
 NEI.hide(<ImmersiveEngineering:material:6>);
@@ -1622,6 +1689,7 @@ NEI.hide(<Thaumcraft:blockMagicBox:0>);
 NEI.hide(<Thaumcraft:blockManaPod:0>);
 NEI.hide(<Thaumcraft:blockPortalEldritch:0>);
 NEI.hide(<Thaumcraft:blockWarded:0>);
+NEI.hide(<Thaumcraft:BlockJarNodeItem:0>);
 NEI.hide(<ThermalFoundation:armor.bootsBronze>);
 NEI.hide(<ThermalFoundation:armor.bootsCopper>);
 NEI.hide(<ThermalFoundation:armor.bootsElectrum>);
