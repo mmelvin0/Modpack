@@ -1004,6 +1004,43 @@ recipes.addShaped(<Railcraft:cube:1>, [
 ]);
 
 
+  /////////////
+ // SAWDUST //
+/////////////
+
+// unify ore dictionary entries
+<ore:pulpWood>.add(<ThermalExpansion:material:512>);
+<ore:dustWood>.add(<Forestry:woodPulp:0>);
+
+// remove unbalanced mekanism paper recipe
+recipes.removeShaped(<minecraft:paper> * 6, [
+    [<Mekanism:Sawdust>, <Mekanism:Sawdust>, <Mekanism:Sawdust>]
+]);
+
+// replace forestry wood pulp with theraml expansion sawdust
+mods.forestry.Carpenter.removeRecipe(<Forestry:woodPulp> * 4, <liquid:water> * 250);
+mods.forestry.Carpenter.addRecipe(<ThermalExpansion:material:512> * 4, [
+    [<ore:logWood>]
+], <liquid:water> * 250, 5);
+
+// slightly more involved recipe for cardboard box
+recipes.remove(<Mekanism:CardboardBox:0>);
+recipes.addShaped(<Mekanism:CardboardBox:0>, [
+    [<ThermalExpansion:material:513>, <ThermalExpansion:material:513>, <ThermalExpansion:material:513>],
+    [<ThermalExpansion:material:513>, <minecraft:water_bucket>.giveBack(<minecraft:bucket>), <ThermalExpansion:material:513>],
+    [<ThermalExpansion:material:513>, <ThermalExpansion:material:513>, <ThermalExpansion:material:513>]
+]);
+mods.forestry.Carpenter.addRecipe(<Mekanism:CardboardBox:0>, [
+    [<ThermalExpansion:material:513>, <ThermalExpansion:material:513>, <ThermalExpansion:material:513>],
+    [<ThermalExpansion:material:513>, null, <ThermalExpansion:material:513>],
+    [<ThermalExpansion:material:513>, <ThermalExpansion:material:513>, <ThermalExpansion:material:513>]
+], <liquid:water> * 750, 20);
+
+// allow conversion
+recipes.addShapeless(<ThermalExpansion:material:512>, [<ore:dustWood>]);
+NEI.hide(<Forestry:woodPulp:0>);
+
+
   //////////
  // LOOT //
 //////////

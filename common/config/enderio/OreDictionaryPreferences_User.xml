@@ -5,6 +5,10 @@ Entries in this file take precedence over the values in the core file
 
   <!-- Dusts -->
 
+  <preference oreDictionary="dustWood">
+    <itemStack modID="ThermalExpansion" itemName="material" itemMeta="512" />
+  </preference>
+
   <preference oreDictionary="dustCoal">
     <itemStack modID="IC2" itemName="itemDust" itemMeta="2" />
   </preference>
