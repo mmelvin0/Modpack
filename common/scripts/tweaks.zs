@@ -540,8 +540,9 @@ for item in <ore:blockElectrum>.items {
  // THERMAL FOUNDATION //
 ////////////////////////
 
-// make TF and IE slag act the same
+// make IC2, TE, and IE slag act the same
 <ore:itemSlag>.add(<ThermalExpansion:material:514>);
+<ore:itemSlag>.add(<IC2:itemSlag:0>);
 
 // clay
 recipes.removeShapeless(<minecraft:clay_ball> * 4, [
@@ -948,6 +949,58 @@ recipes.addShaped(<TSteelworks:LimestoneSlab:6> * 6, [
 recipes.remove(<TSteelworks:LimestoneSlab:7> * 6);
 recipes.addShaped(<TSteelworks:LimestoneSlab:7> * 6, [
     [<TSteelworks:Limestone:7>, <TSteelworks:Limestone:7>, <TSteelworks:Limestone:7>]
+]);
+
+
+  //////////////
+ // CONCRETE //
+//////////////
+
+// remove unwanted recipes
+furnace.remove(<ore:concrete>);
+mods.thermalexpansion.Furnace.removeRecipe(<ore:gravel>);
+recipes.remove(<ImmersiveEngineering:stoneDecoration:4>);
+recipes.remove(<Railcraft:cube:1>);
+
+// normal concrete recipe with grout, rebar, and a bucket of water
+recipes.addShaped(<ImmersiveEngineering:stoneDecoration:4> * 8, [
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>],
+    [<Railcraft:part.rebar>, <minecraft:water_bucket>.giveBack(<minecraft:bucket>), <Railcraft:part.rebar>],
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>]
+]);
+
+// same as above but in carpenter using slightly less water
+mods.forestry.Carpenter.addRecipe(<ImmersiveEngineering:stoneDecoration:4> * 8, [
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>],
+    [<Railcraft:part.rebar>, null, <Railcraft:part.rebar>],
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>]
+], <liquid:water> * 750, 40);
+
+// high efficiency recipe with slag
+recipes.addShaped(<ImmersiveEngineering:stoneDecoration:4> * 12, [
+    [<ore:itemSlag>, <Railcraft:part.rebar>, <ore:itemSlag>],
+    [<Railcraft:part.rebar>, <minecraft:water_bucket>.giveBack(<minecraft:bucket>), <Railcraft:part.rebar>],
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>]
+]);
+
+// high efficiency carpenter recipe
+mods.forestry.Carpenter.addRecipe(<ImmersiveEngineering:stoneDecoration:4> * 12, [
+    [<ore:itemSlag>, <Railcraft:part.rebar>, <ore:itemSlag>],
+    [<Railcraft:part.rebar>, null, <Railcraft:part.rebar>],
+    [<TConstruct:CraftedSoil:1>, <Railcraft:part.rebar>, <TConstruct:CraftedSoil:1>]
+], <liquid:water> * 750, 40);
+
+// ensure railcraft concrete can be chiseled
+mods.chisel.Groups.addVariation("concrete", <Railcraft:cube:1>);
+
+// put back slabs -> block recipe
+recipes.addShaped(<ImmersiveEngineering:stoneDecoration:4>, [
+    [<ImmersiveEngineering:stoneSlab:1>],
+    [<ImmersiveEngineering:stoneSlab:1>]
+]);
+recipes.addShaped(<Railcraft:cube:1>, [
+    [<Railcraft:slab:2>],
+    [<Railcraft:slab:2>]
 ]);
 
 
