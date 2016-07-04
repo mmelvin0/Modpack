@@ -1041,6 +1041,43 @@ recipes.addShapeless(<ThermalExpansion:material:512>, [<ore:dustWood>]);
 NEI.hide(<Forestry:woodPulp:0>);
 
 
+  /////////
+ // MUD //
+/////////
+
+recipes.addShaped(<BiomesOPlenty:mudball:0> * 8, [
+    [<minecraft:dirt:0>, <minecraft:dirt:0>, <minecraft:dirt:0>],
+    [<minecraft:dirt:0>, <minecraft:water_bucket>.giveBack(<minecraft:bucket>), <minecraft:dirt:0>],
+    [<minecraft:dirt:0>, <minecraft:dirt:0>, <minecraft:dirt:0>]
+]);
+
+mods.forestry.Carpenter.addRecipe(<BiomesOPlenty:mudball:0>, [
+    [<minecraft:dirt:0>]
+], <liquid:water> * 100, 5);
+
+recipes.addShaped(<BiomesOPlenty:stoneSingleSlab:0> * 6, [
+    [<BiomesOPlenty:mudBricks:0>, <BiomesOPlenty:mudBricks:0>, <BiomesOPlenty:mudBricks:0>]
+]);
+
+
+  ///////////
+ // SLIME //
+///////////
+
+recipes.addShapeless(<TConstruct:strangeFood:0>, [<minecraft:slime_ball:0>, <ore:dyeBlue>]);
+
+recipes.addShaped(<TConstruct:slime.sapling:0>, [
+    [<minecraft:slime_ball:0>, <minecraft:slime_ball:0>, <minecraft:slime_ball:0>],
+    [<minecraft:slime_ball:0>, <minecraft:sapling:3>, <minecraft:slime_ball:0>],
+    [<minecraft:slime_ball:0>, <minecraft:slime_ball:0>, <minecraft:slime_ball:0>]
+]);
+
+recipes.remove(<TConstruct:CraftedSoil:0>);
+recipes.addShapeless(<TConstruct:CraftedSoil:0>, [<BiomesOPlenty:mud:0>, <TConstruct:slime.gel:1>]);
+recipes.remove(<TConstruct:CraftedSoil:2>);
+recipes.addShapeless(<TConstruct:CraftedSoil:2>, [<BiomesOPlenty:mud:0>, <TConstruct:slime.gel>]);
+
+
   //////////
  // LOOT //
 //////////
