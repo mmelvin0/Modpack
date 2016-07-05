@@ -952,6 +952,24 @@ recipes.addShaped(<TSteelworks:LimestoneSlab:7> * 6, [
 ]);
 
 
+  ////////////////
+ // OPENBLOCKS //
+////////////////
+
+recipes.remove(<OpenBlocks:generic:0>);
+recipes.remove(<OpenBlocks:generic:6>);
+recipes.remove(<OpenBlocks:generic:7>);
+recipes.remove(<OpenBlocks:generic:9>);
+recipes.remove(<OpenBlocks:generic:10>);
+recipes.remove(<OpenBlocks:generic:11>);
+NEI.hide(<OpenBlocks:generic:0>);
+NEI.hide(<OpenBlocks:generic:6>);
+NEI.hide(<OpenBlocks:generic:7>);
+NEI.hide(<OpenBlocks:generic:9>);
+NEI.hide(<OpenBlocks:generic:10>);
+NEI.hide(<OpenBlocks:generic:11>);
+
+
   //////////////
  // CONCRETE //
 //////////////
