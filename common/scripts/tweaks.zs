@@ -598,6 +598,25 @@ for item in <ore:fuelCharcoal>.items {
     mods.appeng.Grinder.addRecipe(item, <Railcraft:dust:3>, 8);
 }
 
+recipes.remove(<ThermalExpansion:florb:0>);
+recipes.addShapeless(<ThermalExpansion:florb:0> * 1, [
+    <ore:dustWood>,
+    <ore:itemSlag>,
+    <ore:slimeball>
+]);
+
+recipes.remove(<ThermalExpansion:florb:1>);
+recipes.addShapeless(<ThermalExpansion:florb:1> * 1, [
+    <ore:dustWood>,
+    <ore:itemSlag>,
+    <ore:slimeball>,
+    <ore:powderBlaze>
+]);
+recipes.addShapeless(<ThermalExpansion:florb:1> * 1, [
+    <ore:dustWood>,
+    <ore:itemSlag>,
+    <minecraft:magma_cream:0>
+]);
 
   ///////////////////////////
  // IMMERSIVE ENGINEERING //
@@ -1597,6 +1616,7 @@ NEI.hide(<AWWayofTime:demonPortalMain:0>);
 NEI.hide(<AWWayofTime:spectralBlock:0>);
 NEI.hide(<AWWayofTime:spectralContainer:0>);
 NEI.hide(<BiblioCraft:BiblioClipboard>);
+NEI.hide(<BiomesOPlenty:stoneDoubleSlab:0>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab1:0>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab1:1>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab1:2>);
@@ -1610,7 +1630,6 @@ NEI.hide(<BiomesOPlenty:woodenDoubleSlab2:1>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab2:2>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab2:3>);
 NEI.hide(<BiomesOPlenty:woodenDoubleSlab2:4>);
-NEI.hide(<BiomesOPlenty:stoneDoubleSlab:0>);
 NEI.hide(<Botania:bifrost:0>);
 NEI.hide(<Botania:biomeStoneA0SlabFull:0>);
 NEI.hide(<Botania:biomeStoneA10SlabFull:0>);
@@ -1746,12 +1765,18 @@ NEI.hide(<chisel:marble_slab_top:6>);
 NEI.hide(<chisel:marble_slab_top:7>);
 NEI.hide(<chisel:marble_slab_top:8>);
 NEI.hide(<chisel:marble_slab_top:9>);
-NEI.hide(<EnderIO:blockLightNode:0>);
 NEI.hide(<EnderIO:blockInhibitorObelisk:0>);
+NEI.hide(<EnderIO:blockLightNode:0>);
 NEI.hide(<EnderZoo:enderZooIcon:0>);
 NEI.hide(<extracells:ecbaseblock:1>);
 NEI.hide(<extracells:fluid.item:0>);
 NEI.hide(<Forestry:slabsDouble:0>);
+NEI.hide(<Forestry:slabsDouble:10>);
+NEI.hide(<Forestry:slabsDouble:11>);
+NEI.hide(<Forestry:slabsDouble:12>);
+NEI.hide(<Forestry:slabsDouble:13>);
+NEI.hide(<Forestry:slabsDouble:14>);
+NEI.hide(<Forestry:slabsDouble:15>);
 NEI.hide(<Forestry:slabsDouble:1>);
 NEI.hide(<Forestry:slabsDouble:2>);
 NEI.hide(<Forestry:slabsDouble:3>);
@@ -1761,13 +1786,13 @@ NEI.hide(<Forestry:slabsDouble:6>);
 NEI.hide(<Forestry:slabsDouble:7>);
 NEI.hide(<Forestry:slabsDouble:8>);
 NEI.hide(<Forestry:slabsDouble:9>);
-NEI.hide(<Forestry:slabsDouble:10>);
-NEI.hide(<Forestry:slabsDouble:11>);
-NEI.hide(<Forestry:slabsDouble:12>);
-NEI.hide(<Forestry:slabsDouble:13>);
-NEI.hide(<Forestry:slabsDouble:14>);
-NEI.hide(<Forestry:slabsDouble:15>);
 NEI.hide(<Forestry:slabsDoubleFireproof:0>);
+NEI.hide(<Forestry:slabsDoubleFireproof:10>);
+NEI.hide(<Forestry:slabsDoubleFireproof:11>);
+NEI.hide(<Forestry:slabsDoubleFireproof:12>);
+NEI.hide(<Forestry:slabsDoubleFireproof:13>);
+NEI.hide(<Forestry:slabsDoubleFireproof:14>);
+NEI.hide(<Forestry:slabsDoubleFireproof:15>);
 NEI.hide(<Forestry:slabsDoubleFireproof:1>);
 NEI.hide(<Forestry:slabsDoubleFireproof:2>);
 NEI.hide(<Forestry:slabsDoubleFireproof:3>);
@@ -1777,12 +1802,6 @@ NEI.hide(<Forestry:slabsDoubleFireproof:6>);
 NEI.hide(<Forestry:slabsDoubleFireproof:7>);
 NEI.hide(<Forestry:slabsDoubleFireproof:8>);
 NEI.hide(<Forestry:slabsDoubleFireproof:9>);
-NEI.hide(<Forestry:slabsDoubleFireproof:10>);
-NEI.hide(<Forestry:slabsDoubleFireproof:11>);
-NEI.hide(<Forestry:slabsDoubleFireproof:12>);
-NEI.hide(<Forestry:slabsDoubleFireproof:13>);
-NEI.hide(<Forestry:slabsDoubleFireproof:14>);
-NEI.hide(<Forestry:slabsDoubleFireproof:15>);
 NEI.hide(<funkylocomotion:frame2:0>);
 NEI.hide(<funkylocomotion:frame3:0>);
 NEI.hide(<funkylocomotion:frame4:0>);
@@ -1858,12 +1877,12 @@ NEI.hide(<malisisdoors:wood_sliding_door>);
 NEI.hide(<Mantle:mantleBook:0>);
 NEI.hide(<Mariculture:pearl_brick:12>);
 NEI.hide(<PneumaticCraft:droneRedstoneEmitter:0>);
+NEI.hide(<PneumaticCraft:etchingAcid:0>);
 NEI.hide(<PneumaticCraft:keroseneLampLight:0>);
 NEI.hide(<PneumaticCraft:plasticBlock:0>);
-NEI.hide(<PneumaticCraft:etchingAcid:0>);
+NEI.hide(<ProjRed|Illumination:projectred.illumination.airousLight:0>);
 NEI.hide(<props:blockFake:0>);
 NEI.hide(<props:blockProps:0>);
-NEI.hide(<ProjRed|Illumination:projectred.illumination.airousLight:0>);
 NEI.hide(<statues:statues.showcase:0>);
 NEI.hide(<statues:statues.statue:0>);
 NEI.hide(<StevesCarts:ModularCart:0>);
@@ -1876,11 +1895,11 @@ NEI.hide(<Thaumcraft:blockCosmeticDoubleSlabStone:0>);
 NEI.hide(<Thaumcraft:blockCosmeticDoubleSlabWood:0>);
 NEI.hide(<Thaumcraft:blockEldritchNothing:0>);
 NEI.hide(<Thaumcraft:blockHole:0>);
+NEI.hide(<Thaumcraft:BlockJarNodeItem:0>);
 NEI.hide(<Thaumcraft:blockMagicBox:0>);
 NEI.hide(<Thaumcraft:blockManaPod:0>);
 NEI.hide(<Thaumcraft:blockPortalEldritch:0>);
 NEI.hide(<Thaumcraft:blockWarded:0>);
-NEI.hide(<Thaumcraft:BlockJarNodeItem:0>);
 NEI.hide(<ThermalFoundation:armor.bootsBronze>);
 NEI.hide(<ThermalFoundation:armor.bootsCopper>);
 NEI.hide(<ThermalFoundation:armor.bootsElectrum>);
@@ -1930,21 +1949,29 @@ NEI.hide(<ThermalFoundation:tool.axeSilver>);
 NEI.hide(<ThermalFoundation:tool.axeTin>);
 NEI.hide(<ThermalFoundation:tool.bowBronze>);
 NEI.hide(<ThermalFoundation:tool.bowCopper>);
+NEI.hide(<ThermalFoundation:tool.bowDiamond>);
 NEI.hide(<ThermalFoundation:tool.bowElectrum>);
+NEI.hide(<ThermalFoundation:tool.bowGold>);
 NEI.hide(<ThermalFoundation:tool.bowInvar>);
+NEI.hide(<ThermalFoundation:tool.bowIron>);
 NEI.hide(<ThermalFoundation:tool.bowLead>);
 NEI.hide(<ThermalFoundation:tool.bowNickel>);
 NEI.hide(<ThermalFoundation:tool.bowPlatinum>);
 NEI.hide(<ThermalFoundation:tool.bowSilver>);
+NEI.hide(<ThermalFoundation:tool.bowStone>);
 NEI.hide(<ThermalFoundation:tool.bowTin>);
 NEI.hide(<ThermalFoundation:tool.fishingRodBronze>);
 NEI.hide(<ThermalFoundation:tool.fishingRodCopper>);
+NEI.hide(<ThermalFoundation:tool.fishingRodDiamond>);
 NEI.hide(<ThermalFoundation:tool.fishingRodElectrum>);
+NEI.hide(<ThermalFoundation:tool.fishingRodGold>);
 NEI.hide(<ThermalFoundation:tool.fishingRodInvar>);
+NEI.hide(<ThermalFoundation:tool.fishingRodIron>);
 NEI.hide(<ThermalFoundation:tool.fishingRodLead>);
 NEI.hide(<ThermalFoundation:tool.fishingRodNickel>);
 NEI.hide(<ThermalFoundation:tool.fishingRodPlatinum>);
 NEI.hide(<ThermalFoundation:tool.fishingRodSilver>);
+NEI.hide(<ThermalFoundation:tool.fishingRodStone>);
 NEI.hide(<ThermalFoundation:tool.fishingRodTin>);
 NEI.hide(<ThermalFoundation:tool.hoeBronze>);
 NEI.hide(<ThermalFoundation:tool.hoeCopper>);
@@ -1966,13 +1993,17 @@ NEI.hide(<ThermalFoundation:tool.pickaxeSilver>);
 NEI.hide(<ThermalFoundation:tool.pickaxeTin>);
 NEI.hide(<ThermalFoundation:tool.shearsBronze>);
 NEI.hide(<ThermalFoundation:tool.shearsCopper>);
+NEI.hide(<ThermalFoundation:tool.shearsDiamond>);
 NEI.hide(<ThermalFoundation:tool.shearsElectrum>);
+NEI.hide(<ThermalFoundation:tool.shearsGold>);
 NEI.hide(<ThermalFoundation:tool.shearsInvar>);
 NEI.hide(<ThermalFoundation:tool.shearsLead>);
 NEI.hide(<ThermalFoundation:tool.shearsNickel>);
 NEI.hide(<ThermalFoundation:tool.shearsPlatinum>);
 NEI.hide(<ThermalFoundation:tool.shearsSilver>);
+NEI.hide(<ThermalFoundation:tool.shearsStone>);
 NEI.hide(<ThermalFoundation:tool.shearsTin>);
+NEI.hide(<ThermalFoundation:tool.shearsWood>);
 NEI.hide(<ThermalFoundation:tool.shovelBronze>);
 NEI.hide(<ThermalFoundation:tool.shovelCopper>);
 NEI.hide(<ThermalFoundation:tool.shovelElectrum>);
@@ -1984,13 +2015,18 @@ NEI.hide(<ThermalFoundation:tool.shovelSilver>);
 NEI.hide(<ThermalFoundation:tool.shovelTin>);
 NEI.hide(<ThermalFoundation:tool.sickleBronze>);
 NEI.hide(<ThermalFoundation:tool.sickleCopper>);
+NEI.hide(<ThermalFoundation:tool.sickleDiamond>);
 NEI.hide(<ThermalFoundation:tool.sickleElectrum>);
+NEI.hide(<ThermalFoundation:tool.sickleGold>);
 NEI.hide(<ThermalFoundation:tool.sickleInvar>);
+NEI.hide(<ThermalFoundation:tool.sickleIron>);
 NEI.hide(<ThermalFoundation:tool.sickleLead>);
 NEI.hide(<ThermalFoundation:tool.sickleNickel>);
 NEI.hide(<ThermalFoundation:tool.sicklePlatinum>);
 NEI.hide(<ThermalFoundation:tool.sickleSilver>);
+NEI.hide(<ThermalFoundation:tool.sickleStone>);
 NEI.hide(<ThermalFoundation:tool.sickleTin>);
+NEI.hide(<ThermalFoundation:tool.sickleWood>);
 NEI.hide(<ThermalFoundation:tool.swordBronze>);
 NEI.hide(<ThermalFoundation:tool.swordCopper>);
 NEI.hide(<ThermalFoundation:tool.swordElectrum>);
@@ -2022,10 +2058,10 @@ NEI.hide(<TwilightForest:tile.TFTowerTranslucent:15>);
 NEI.hide(<TwilightForest:tile.TFTowerTranslucent:8>);
 NEI.hide(<TwilightForest:tile.TFTowerTranslucent:9>);
 NEI.hide(<TwilightForest:tile.TFTrophy:0>);
-NEI.hide(<witchery:spiritportal:0>);
-NEI.hide(<witchery:tormentportal:0>);
 NEI.hide(<witchery:icedoubleslab:0>);
 NEI.hide(<witchery:snowdoubleslab:0>);
+NEI.hide(<witchery:spiritportal:0>);
+NEI.hide(<witchery:tormentportal:0>);
 NEI.hide(<witchery:witchwooddoubleslab:0>);
 NEI.hide(<witchery:witchwooddoubleslab:1>);
 NEI.hide(<witchery:witchwooddoubleslab:2>);
