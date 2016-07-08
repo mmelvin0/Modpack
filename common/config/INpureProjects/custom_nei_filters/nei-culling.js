@@ -9,7 +9,6 @@ NEI.override('extracells:pattern.fluid', [0]);
 NEI.override("ExtraUtilities:drum", [0, 1]);
 NEI.override('ForbiddenMagic:MobCrystal', [0]);
 NEI.override('IC2:itemFluidCell', [0]);
-NEI.override('Mekanism:GasTank', [100]);
 NEI.override('ThermalExpansion:florb', [0, 1]);
 
 // bibliocraft
