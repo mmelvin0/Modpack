@@ -618,10 +618,10 @@ recipes.addShapeless(<ThermalExpansion:florb:1> * 1, [
     <minecraft:magma_cream:0>
 ]);
 
+
   ///////////////////////////
  // IMMERSIVE ENGINEERING //
 ///////////////////////////
-
 
 // make coke oven work exactly like railcraft
 mods.immersiveengineering.CokeOven.removeRecipe(<ImmersiveEngineering:material:6>);
@@ -942,6 +942,27 @@ recipes.addShaped(<GalacticraftCore:item.canister:1> * 2, [
     [<ore:ingotCopper>, null, <ore:ingotCopper>],
     [<ore:ingotCopper>, <ore:compressedCopper>, <ore:ingotCopper>]
 ]);
+
+
+  /////////////////
+ // GROWTHCRAFT //
+/////////////////
+
+recipes.remove(<Growthcraft:grccore.salt_block>);
+recipes.remove(<Growthcraft:grccore.salt>);
+furnace.remove(<Growthcraft:grccore.salt>);
+mods.thermalexpansion.Furnace.removeRecipe(<Growthcraft:grccore.BucketFluidSaltWater>);
+mods.thermalexpansion.Furnace.removeRecipe(<Growthcraft:grccore.BottleFluidSaltWater>);
+recipes.remove(<Growthcraft:grccore.saltBottle>);
+recipes.remove(<Growthcraft:grccore.saltBucket>);
+recipes.remove(<Growthcraft:grccore.crowbar:*>);
+
+NEI.hide(<Growthcraft:grccore.BlockFluidSaltWater>);
+NEI.hide(<Growthcraft:grccore.salt_block>);
+NEI.hide(<Growthcraft:grccore.salt>);
+NEI.hide(<Growthcraft:grccore.saltBottle>);
+NEI.hide(<Growthcraft:grccore.saltBucket>);
+NEI.hide(<Growthcraft:grccore.crowbar:*>);
 
 
   ////////////////////////

@@ -14,3 +14,10 @@ NEI.override('ThermalExpansion:florb', [0, 1]);
 // bibliocraft
 NEI.hide('BiblioWoodsBoP:*');
 NEI.hide('BiblioWoodsForestry:*');
+
+// growthcraft
+NEI.hide('Growthcraft|Apples:grc.appleCiderFluid.*');
+NEI.hide('Growthcraft|Grapes:grc.grapeWineFluid.*');
+NEI.hide('Growthcraft|Hops:grc.lagerFluid.*');
+NEI.hide('Growthcraft|Hops:grc.hopAleFluid.*');
+NEI.hide('Growthcraft|Rice:grc.riceSakeFluid.*');
