@@ -5,9 +5,14 @@ $apis = [
     'baubles.api',
     'buildcraft.api',
     'cofh.api',
+    'com.cricketcraft.chisel.api',
     'ic2.api',
-    'thaumcraft.api'
+    'mods.railcraft.api',
+    'thaumcraft.api',
+    'WayofTime.alchemicalWizardry.api'
 ];
+
+$opt = getopt('a');
 
 foreach (glob(dirname(__DIR__) . '\{client,common,server}\mods{\1.7.10,}\*.jar', GLOB_BRACE) as $file) {
     $zip = new ZipArchive();
@@ -16,7 +21,7 @@ foreach (glob(dirname(__DIR__) . '\{client,common,server}\mods{\1.7.10,}\*.jar',
         $name = $zip->getNameIndex($i);
         if (substr($name, -1) === '/') {
             $api = str_replace('/', '.', rtrim($name, '/'));
-            if (in_array($api, $apis)) {
+            if (in_array($api, $apis) || (isset($opt['a']) && substr($api, -4) === '.api')) {
                 print basename($file) . ': ' . $api . PHP_EOL;
             }
         }
