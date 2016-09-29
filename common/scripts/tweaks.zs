@@ -1629,6 +1629,7 @@ NEI.hide(<appliedenergistics2:tile.SkyStoneBlockSlabBlock.double:0>);
 NEI.hide(<appliedenergistics2:tile.SkyStoneBrickSlabBlock.double:0>);
 NEI.hide(<appliedenergistics2:tile.SkyStoneSlabBlock.double:0>);
 NEI.hide(<appliedenergistics2:tile.SkyStoneSmallBrickSlabBlock.double:0>);
+NEI.hide(<armourersWorkshop:block.skinnableGlowing:0>);
 NEI.hide(<AWWayofTime:blockDemonChest:0>);
 NEI.hide(<AWWayofTime:blockMimic:0>);
 NEI.hide(<AWWayofTime:blockSchemSaver:0>);
