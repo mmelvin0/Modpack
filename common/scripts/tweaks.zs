@@ -1217,6 +1217,8 @@ addSaplingLoot(<BiomesOPlenty:colorizedSaplings:6>);
 
 game.setLocalization("Automation Upgrade.name", "Automation Upgrade");
 game.setLocalization("block.limestone.slab.cracked.name", "Cracked Limestone Bricks Slab");
+game.setLocalization("enderio.darksteel.upgrade.goggles.enabled", "Goggles Active");
+game.setLocalization("enderio.darksteel.upgrade.goggles.disabled", "Goggles Disabled");
 game.setLocalization("extracells.gas.IO", "ME Gas Import/Export Bus");
 game.setLocalization("fluid.molten.bedrockiumIngots", "Molten Bedrockium");
 game.setLocalization("highoven.furnace.tooltip", "High Oven structure block");
